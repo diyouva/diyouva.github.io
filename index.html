@@ -181,18 +181,14 @@
     }
 
     .portrait {
-      display: grid;
-      place-items: center;
       aspect-ratio: 1;
       border-radius: 16px;
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent),
-        var(--paper-soft);
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: var(--paper-soft);
       border: 1px solid var(--line);
-      color: var(--accent-strong);
-      font-family: "DM Mono", monospace;
-      font-size: clamp(2.8rem, 9vw, 4.5rem);
-      letter-spacing: -0.1em;
       margin-bottom: 1rem;
     }
 
@@ -580,7 +576,7 @@
 
   <main class="container page">
     <aside class="profile-card" aria-label="Profile summary">
-      <div class="portrait" aria-hidden="true">DCN</div>
+      <img class="portrait" src="assets/profile.jpg" alt="Portrait of Diyouva Christa Novith">
       <h1>Diyouva Christa Novith</h1>
       <p class="role">Data researcher working across customs intelligence, trade, environmental governance, and institutional decision-making.</p>
       <div class="socials" aria-label="External profile links">
