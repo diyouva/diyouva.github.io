@@ -218,30 +218,38 @@
 
     .socials {
       display: grid;
-      gap: 0.75rem;
-      margin-top: 1.15rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 1.2rem;
     }
 
     .social-link {
       display: grid;
-      grid-template-columns: 1.15rem 1fr;
+      grid-template-columns: 1.2rem 1fr;
       align-items: center;
-      gap: 0.7rem;
-      width: fit-content;
-      padding: 0.15rem 0;
-      border: 0;
-      border-radius: 0;
+      gap: 0.5rem;
+      min-height: 2.45rem;
+      padding: 0.58rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
       color: var(--text);
-      background: transparent;
-      font-size: 0.98rem;
+      background: color-mix(in srgb, var(--paper-soft) 74%, transparent);
+      font-size: 0.86rem;
+      font-weight: 650;
       line-height: 1.2;
-      transition: color 160ms ease, transform 160ms ease;
+      transition: color 160ms ease, transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
     .social-link:hover {
       color: var(--accent-strong);
-      transform: translateX(2px);
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--accent) 34%, transparent);
+      background: var(--accent-soft);
       text-decoration: none;
+    }
+
+    .social-link .icon {
+      color: var(--accent-strong);
     }
 
     .icon {
@@ -582,15 +590,13 @@
       <h1>Diyouva Christa Novith</h1>
       <p class="role">Researcher and data scientist working on trade, customs, and technology governance. WCO-accredited data analytics expert with public-sector experience in customs analytics and institutional transformation.</p>
       <div class="socials" aria-label="External profile links">
-        <a class="social-link" href="mailto:diyouva@cmu.edu"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>Email</a>
-        <a class="social-link" href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-scholar"></use></svg>Google Scholar</a>
-        <a class="social-link" href="https://orcid.org/0009-0005-3324-1294" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-orcid"></use></svg>ORCID</a>
-        <a class="social-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub</a>
-        <a class="social-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg>Tableau Public</a>
         <a class="social-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>LinkedIn</a>
+        <a class="social-link" href="https://orcid.org/0009-0005-3324-1294" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-orcid"></use></svg>ORCID</a>
+        <a class="social-link" href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-scholar"></use></svg>Scholar</a>
+        <a class="social-link" href="mailto:diyouva@cmu.edu"><svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>Email</a>
       </div>
       <div class="profile-meta">
-        <span>Research Domains: International Trade, Data Science, Technology governance</span>
+        <span>Research Domains: International Trade, Data Science, Technology Governance</span>
         <span>Methods: Policy Analysis, Natural Language Processing, Visual Analytics</span>
       </div>
     </aside>
