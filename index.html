@@ -466,113 +466,6 @@
       gap: 1rem;
     }
 
-    .cv-shell {
-      display: grid;
-      gap: 1.6rem;
-      margin-top: 1.1rem;
-    }
-
-    .cv-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .cv-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.6rem 0.85rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--paper-soft);
-      color: var(--text);
-      font-size: 0.92rem;
-      font-weight: 650;
-    }
-
-    .cv-download:hover {
-      background: var(--accent-soft);
-      border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-      text-decoration: none;
-    }
-
-    .cv-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem 1rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .cv-subsection {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .cv-subsection h3 {
-      margin: 0;
-      font-family: "DM Mono", monospace;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .cv-entry {
-      display: grid;
-      gap: 0.45rem;
-      padding: 1rem 1.05rem;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--paper);
-    }
-
-    .cv-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.3rem;
-    }
-
-    .cv-role {
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .cv-org {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .cv-dates {
-      color: var(--faint);
-      font-family: "DM Mono", monospace;
-      font-size: 0.82rem;
-    }
-
-    .cv-bullets {
-      margin: 0;
-      padding-left: 1.15rem;
-      color: var(--muted);
-    }
-
-    .cv-bullets li + li {
-      margin-top: 0.35rem;
-    }
-
-    .cv-skill-list {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .cv-skill-list p {
-      margin: 0;
-      color: var(--muted);
-    }
-
     .arrow-link {
       color: var(--accent-strong);
       font-weight: 700;
@@ -614,11 +507,6 @@
       .cv-grid,
       .talk-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cv-head {
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: start;
       }
     }
 
@@ -861,133 +749,24 @@
 
       <section class="section" id="cv" data-section>
         <div class="kicker">CV</div>
-        <h2>Structured academic and professional record.</h2>
-        <div class="cv-shell">
-          <div class="cv-top">
-            <div class="cv-contact">
-              <span>diyouva@cmu.edu</span>
-              <span>Pittsburgh, PA</span>
-              <span><a href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">linkedin.com/in/diyouva</a></span>
-            </div>
-            <a class="cv-download" href="assets/diyouva-novith-cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
-          </div>
-
-          <div class="cv-subsection">
-            <h3>Professional Summary</h3>
-            <div class="cv-entry">
-              <p class="muted">Researcher and data scientist working on trade, customs, and technology governance, with public-sector experience spanning customs operations, analytics, and regional digital trade integration.</p>
-            </div>
-          </div>
-
-          <div class="cv-subsection">
-            <h3>Education</h3>
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Master of Science in Public Policy and Management, Data Analytics</div>
-                  <div class="cv-org">Carnegie Mellon University, Heinz College — Pittsburgh, PA</div>
-                </div>
-                <div class="cv-dates">Expected May 2027</div>
-              </div>
-            </div>
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Bachelor Degree in Applied Accounting</div>
-                  <div class="cv-org">STAN Polytechnic of State Finance — Jakarta, Indonesia</div>
-                </div>
-                <div class="cv-dates">Jun 2019 – Oct 2021</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="cv-subsection">
-            <h3>Experience</h3>
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Technical Officer, Indonesian Representative</div>
-                  <div class="cv-org">ASEAN Single Window, ASEAN Secretariat — Jakarta, Indonesia</div>
-                </div>
-                <div class="cv-dates">Jun 2022 – Aug 2025</div>
-              </div>
-              <ul class="cv-bullets">
-                <li>Engineered SQL/XML trade pipelines with automated validation, improving processing speed by 25% and accuracy by 20% across ASEAN countries.</li>
-                <li>Modeled data-exchange frameworks to guide digitization, securing unified message standards with Japan and China.</li>
-              </ul>
-            </div>
-
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Data Analyst</div>
-                  <div class="cv-org">Ministry of Finance — Jakarta, Indonesia</div>
-                </div>
-                <div class="cv-dates">May 2022 – Aug 2025</div>
-              </div>
-              <ul class="cv-bullets">
-                <li>Designed real-time fiscal dashboards and regression forecasts, improving budget accuracy and cutting decision cycles by 15%.</li>
-                <li>Automated data pipelines in Python and StreamSets; created KPI reports adopted by senior leadership, reducing data latency by 40%.</li>
-              </ul>
-            </div>
-
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Customs and Excise Analyst</div>
-                  <div class="cv-org">Atambua Customs Office — Atambua, Indonesia</div>
-                </div>
-                <div class="cv-dates">Dec 2016 – May 2022</div>
-              </div>
-              <ul class="cv-bullets">
-                <li>Constructed a tax elasticity model and evaluated export-support programs, driving revenue growth by 72% in 2017 and 95% in 2018.</li>
-                <li>Supported policy design and regional trade strategies by automating revenue monitoring, reducing reporting time by 30%.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cv-subsection">
-            <h3>Projects</h3>
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">StockMatch, Gamified AI Stock Recommender</div>
-                  <div class="cv-org">Data Scientist — Pittsburgh, PA</div>
-                </div>
-                <div class="cv-dates">Aug 2025 – Oct 2025</div>
-              </div>
-              <ul class="cv-bullets">
-                <li>Built a swipe-based stock discovery system that captures interaction data for increasingly accurate personalized recommendations.</li>
-                <li>Applied large language models for plain-English financial insights and integrated real-time news sentiment.</li>
-                <li>Designed a portfolio engine using volatility, sector exposure, and diversification constraints.</li>
-              </ul>
-            </div>
-
-            <div class="cv-entry">
-              <div class="cv-head">
-                <div>
-                  <div class="cv-role">Customs Data Culture</div>
-                  <div class="cv-org">Initiator and Project Manager — Jakarta, Indonesia</div>
-                </div>
-                <div class="cv-dates">Jan 2023 – Dec 2023</div>
-              </div>
-              <ul class="cv-bullets">
-                <li>Launched a nationwide analytics initiative across more than 30 units, reducing manual reporting by 50%.</li>
-                <li>Trained over 100 BI analysts and more than 50 data analysts, helping unify analytics adoption for policy execution.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cv-subsection">
-            <h3>Selected Skills</h3>
-            <div class="cv-entry cv-skill-list">
-              <p><strong>Business Intelligence:</strong> Tableau, Power BI, Google Data Studio</p>
-              <p><strong>Data Engineering:</strong> Oracle, MySQL, PostgreSQL, Dataiku</p>
-              <p><strong>API and Data Warehouse:</strong> Pentaho, StreamSets, Tableau Prep, JSON, REST</p>
-              <p><strong>Programming and Analytics:</strong> Python, R, SQL, Excel</p>
-              <p><strong>Financial Modeling:</strong> Cost Optimization, Variance Analysis, Partial Equilibrium Analysis</p>
-            </div>
-          </div>
+        <h2>A concise academic profile for research, applied analytics, and public-sector work.</h2>
+        <div class="cv-grid">
+          <article class="card">
+            <h3>Research Areas</h3>
+            <p>Customs intelligence, trade analysis, environmental fiscal policy, institutional decision-making, and evidence governance.</p>
+          </article>
+          <article class="card">
+            <h3>Methods</h3>
+            <p>Machine learning, text classification, policy analysis, partial-equilibrium reasoning, dashboarding, and visual analytics.</p>
+          </article>
+          <article class="card">
+            <h3>Public Profiles</h3>
+            <p><a class="arrow-link" href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a> · <a class="arrow-link" href="https://orcid.org/0009-0005-3324-1294" target="_blank" rel="noreferrer">ORCID</a> · <a class="arrow-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer">GitHub</a> · <a class="arrow-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+          </article>
+          <article class="card">
+            <h3>CV File</h3>
+            <p>A downloadable CV can be added here when the final PDF is ready. I am not linking a placeholder file because broken CV links look unprofessional.</p>
+          </article>
         </div>
       </section>
 
