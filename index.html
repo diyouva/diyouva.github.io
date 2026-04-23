@@ -315,7 +315,8 @@
 
     .interest-grid,
     .project-grid,
-    .leadership-grid {
+    .cv-grid,
+    .talk-grid {
       display: grid;
       gap: 1rem;
       margin-top: 1.25rem;
@@ -326,7 +327,8 @@
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    .leadership-grid {
+    .cv-grid,
+    .talk-grid {
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
@@ -369,27 +371,6 @@
       color: var(--accent-strong);
       font-size: 0.78rem;
       line-height: 1;
-    }
-
-    .news-list {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 7.25rem 1fr;
-      gap: 1rem;
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .news-item time {
-      color: var(--faint);
-      font-family: "DM Mono", monospace;
-      font-size: 0.82rem;
-      white-space: nowrap;
     }
 
     .publication-list {
@@ -515,7 +496,8 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .leadership-grid {
+      .cv-grid,
+      .talk-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -549,10 +531,6 @@
         justify-content: flex-start;
       }
 
-      .news-item {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-      }
     }
 
     @media (max-width: 520px) {
@@ -582,10 +560,10 @@
       <div class="nav-right">
         <nav class="nav-links" aria-label="Section navigation">
           <a class="nav-link active" href="#about">About</a>
-          <a class="nav-link" href="#updates">Updates</a>
-          <a class="nav-link" href="#research">Research</a>
-          <a class="nav-link" href="#work">Work</a>
-          <a class="nav-link" href="#leadership">Leadership</a>
+          <a class="nav-link" href="#publication">Publication</a>
+          <a class="nav-link" href="#project">Project</a>
+          <a class="nav-link" href="#cv">CV</a>
+          <a class="nav-link" href="#talk">Talk</a>
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
           <svg aria-hidden="true"><use href="#icon-moon"></use></svg>
@@ -644,33 +622,10 @@
         </div>
       </section>
 
-      <section class="section" id="updates" data-section>
-        <div class="kicker">Updates</div>
-        <h2>Recent work and public-facing activity.</h2>
-        <div class="news-list">
-          <div class="news-item">
-            <time datetime="2025-12">Dec 2025</time>
-            <p>Contributed as a data analytics expert in a WCO BACUDA workshop for Viet Nam Customs, focused on AI, data quality, and evidence-based decision-making.</p>
-          </div>
-          <div class="news-item">
-            <time datetime="2025">2025</time>
-            <p>Published work evaluating plastic excise policy as an environmental instrument in Indonesia.</p>
-          </div>
-          <div class="news-item">
-            <time datetime="2024">2024</time>
-            <p>Published research on HS code recommendation using multi-class classification for customs automation.</p>
-          </div>
-          <div class="news-item">
-            <time datetime="2023">2023</time>
-            <p>Published applied research on customs fraud detection using an Extremely Boosted Neural Network model.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="research" data-section>
-        <div class="kicker">Selected Publications</div>
+      <section class="section" id="publication" data-section>
+        <div class="kicker">Publication</div>
         <h2>Publications grounded in operational and policy problems.</h2>
-        <p class="muted">The thread across these papers is not tool demonstration alone; it is the use of models, classification systems, and policy analysis to improve institutional judgment.</p>
+        <p class="muted">The thread across these papers is not tool demonstration alone; it is the use of models, classification systems, and policy analysis to improve institutional judgment. For the full record, see <a href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a>.</p>
 
         <div class="publication-list">
           <article class="publication">
@@ -711,16 +666,35 @@
         </div>
       </section>
 
-      <section class="section" id="work" data-section>
-        <div class="kicker">Applied Work</div>
-        <h2>Projects and analytic products shaped by institutional constraints.</h2>
+      <section class="section" id="project" data-section>
+        <div class="kicker">Project</div>
+        <h2>Code, dashboards, and analytic products shaped by institutional constraints.</h2>
+        <p class="muted">This section separates reproducible code and visual analytics: GitHub for technical work, Tableau Public for dashboard and communication work.</p>
         <div class="project-grid">
           <article class="card project-card">
             <div class="project-top">
-              <h3>Import Risk Modeling</h3>
+              <h3>GitHub Portfolio</h3>
+              <a class="arrow-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer">Open</a>
+            </div>
+            <p>Repository home for code, experiments, and reproducible materials connected to data science and applied analytics work.</p>
+            <div class="tag-row"><span class="tag">Code</span><span class="tag">Reproducibility</span><span class="tag">Analytics</span></div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Tableau Public Dashboards</h3>
+              <a class="arrow-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer">Open</a>
+            </div>
+            <p>Visual analytics portfolio for exploring policy, operational, and institutional questions through dashboards and narrative views.</p>
+            <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Visual analytics</span><span class="tag">Communication</span></div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Customs Risk Modeling</h3>
               <a class="arrow-link" href="https://www.researchgate.net/publication/376588365_CUSTOMS_FRAUD_DETECTION_USING_EXTREMELY_BOOSTED_NEURAL_NETWORK_XBNET" target="_blank" rel="noreferrer">Open</a>
             </div>
-            <p>Fraud detection workflows for customs declarations, emphasizing risk prioritization and operational interpretability.</p>
+            <p>Applied modeling work for fraud detection and customs risk prioritization, emphasizing institutional usability.</p>
             <div class="tag-row"><span class="tag">Machine learning</span><span class="tag">Risk scoring</span><span class="tag">Governance</span></div>
           </article>
 
@@ -729,43 +703,48 @@
               <h3>HS Code Classification</h3>
               <a class="arrow-link" href="https://jurnalbppk.kemenkeu.go.id/jurnalbppk/user/setLocale/en_US?source=%2Fjurnalbppk%2Farticle%2Fview%2F879" target="_blank" rel="noreferrer">Open</a>
             </div>
-            <p>Text classification approach for improving consistency and speed in customs tariff coding.</p>
+            <p>Classification approach for improving consistency and speed in customs tariff coding from text-based goods descriptions.</p>
             <div class="tag-row"><span class="tag">Text data</span><span class="tag">Classification</span><span class="tag">Automation</span></div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>Trade and Export Potential</h3>
-              <a class="arrow-link" href="https://jurnal.pknstan.ac.id/index.php/PBC/article/view/2242" target="_blank" rel="noreferrer">Open</a>
-            </div>
-            <p>Policy analysis of regional trade liberalization and its implications for Indonesia's export opportunities.</p>
-            <div class="tag-row"><span class="tag">Trade policy</span><span class="tag">Scenario analysis</span></div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>Visual Analytics Portfolio</h3>
-              <a class="arrow-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer">Open</a>
-            </div>
-            <p>Dashboards and exploratory visual work for communicating policy patterns, tradeoffs, and analytic findings.</p>
-            <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Communication</span></div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="leadership" data-section>
-        <div class="kicker">Leadership & Notes</div>
-        <h2>Teaching, workshop, and public communication activity.</h2>
-        <div class="leadership-grid">
+      <section class="section" id="cv" data-section>
+        <div class="kicker">CV</div>
+        <h2>A concise academic profile for research, applied analytics, and public-sector work.</h2>
+        <div class="cv-grid">
+          <article class="card">
+            <h3>Research Areas</h3>
+            <p>Customs intelligence, trade analysis, environmental fiscal policy, institutional decision-making, and evidence governance.</p>
+          </article>
+          <article class="card">
+            <h3>Methods</h3>
+            <p>Machine learning, text classification, policy analysis, partial-equilibrium reasoning, dashboarding, and visual analytics.</p>
+          </article>
+          <article class="card">
+            <h3>Public Profiles</h3>
+            <p><a class="arrow-link" href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar</a> · <a class="arrow-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer">GitHub</a> · <a class="arrow-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+          </article>
+          <article class="card">
+            <h3>CV File</h3>
+            <p>A downloadable CV can be added here when the final PDF is ready. I am not linking a placeholder file because broken CV links look unprofessional.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="talk" data-section>
+        <div class="kicker">Talk</div>
+        <h2>Workshop and conference activity.</h2>
+        <div class="talk-grid">
           <article class="card">
             <h3>WCO BACUDA Workshop Contributor</h3>
             <p>Supported regional customs capacity building as a data analytics expert, with emphasis on AI readiness, data quality, and institutional use.</p>
             <p><a class="arrow-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer">Workshop note</a></p>
           </article>
           <article class="card">
-            <h3>Writing and Research Updates</h3>
-            <p>Short reflections and professional updates live on LinkedIn, where research outputs can connect to public-facing discussion.</p>
-            <p><a class="arrow-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">LinkedIn profile</a></p>
+            <h3>Conference and Seminar Notes</h3>
+            <p>Future talks, conference presentations, and research seminars can be listed here with title, venue, and date. For now, LinkedIn is the best public source for professional updates.</p>
+            <p><a class="arrow-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">LinkedIn updates</a></p>
           </article>
         </div>
       </section>
