@@ -137,6 +137,14 @@
       gap: 0.25rem;
     }
 
+    .top-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .nav-link,
     .theme-toggle {
       padding: 0.45rem 0.72rem;
@@ -179,6 +187,34 @@
       background: var(--accent-2);
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 14%, transparent);
       flex: 0 0 auto;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.18rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface-soft) 34%, var(--surface));
+    }
+
+    .lang-button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.34rem 0.58rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .lang-button.active {
+      background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+      color: var(--text);
     }
 
     .page {
@@ -709,16 +745,22 @@
     <div class="container topbar-inner">
       <a class="brand" href="#about">Diyouva Christa Novith</a>
       <nav class="nav-links" aria-label="Section navigation">
-        <a class="nav-link active" href="#about">About</a>
-        <a class="nav-link" href="#publication">Publication</a>
-        <a class="nav-link" href="#project">Project</a>
-        <a class="nav-link" href="#cv">CV</a>
-        <a class="nav-link" href="#talk">Talk</a>
+        <a class="nav-link active" href="#about" data-i18n="nav_about">About</a>
+        <a class="nav-link" href="#publication" data-i18n="nav_publication">Publication</a>
+        <a class="nav-link" href="#project" data-i18n="nav_project">Project</a>
+        <a class="nav-link" href="#cv" data-i18n="nav_cv">CV</a>
+        <a class="nav-link" href="#talk" data-i18n="nav_talk">Talk</a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-        <span class="toggle-dot" aria-hidden="true"></span>
-        <span class="theme-toggle-label">Switch theme</span>
-      </button>
+      <div class="top-controls">
+        <div class="lang-toggle" aria-label="Language switcher">
+          <button class="lang-button active" type="button" data-lang="en">EN</button>
+          <button class="lang-button" type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="toggle-dot" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Switch theme</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -726,13 +768,13 @@
     <aside class="sidebar" aria-label="Profile summary">
       <img class="portrait" src="assets/profile.jpg" alt="Portrait of Diyouva Christa Novith">
       <h1>Diyouva Christa Novith</h1>
-      <p class="sidebar-role">Researcher and data scientist working on trade, customs, and technology governance. WCO-accredited data analytics expert with public-sector experience in customs analytics and institutional transformation.</p>
+      <p class="sidebar-role" data-i18n="sidebar_role">Researcher and data scientist working on trade, customs, and technology governance. WCO-accredited data analytics expert with public-sector experience in customs analytics and institutional transformation.</p>
 
       <div class="contact-grid" aria-label="Profile links">
         <a class="contact-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">
           <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
-          <span class="label">LinkedIn</span>
-          <span class="meta">Profile</span>
+          <span class="label" data-i18n="contact_linkedin">LinkedIn</span>
+          <span class="meta" data-i18n="contact_profile">Profile</span>
         </a>
         <a class="contact-link" href="https://orcid.org/0009-0005-3324-1294" target="_blank" rel="noreferrer">
           <svg class="icon" aria-hidden="true"><use href="#icon-orcid"></use></svg>
@@ -741,127 +783,127 @@
         </a>
         <a class="contact-link" href="https://scholar.google.com/citations?user=MS7d1_kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
           <svg class="icon" aria-hidden="true"><use href="#icon-scholar"></use></svg>
-          <span class="label">Google Scholar</span>
-          <span class="meta">Publications</span>
+          <span class="label" data-i18n="contact_scholar">Google Scholar</span>
+          <span class="meta" data-i18n="contact_publications">Publications</span>
         </a>
         <a class="contact-link" href="mailto:diyouva@cmu.edu">
           <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>
-          <span class="label">Email</span>
+          <span class="label" data-i18n="contact_email">Email</span>
           <span class="meta">diyouva@cmu.edu</span>
         </a>
       </div>
 
       <div class="sidebar-meta">
-        <span><strong>Research Domains:</strong> International Trade, Customs, Technology Governance</span>
-        <span><strong>Methods:</strong> Policy Analysis, Machine Learning, Natural Language Processing, Visual Analytics</span>
-        <span><strong>Current Base:</strong> Carnegie Mellon University, Heinz College</span>
+        <span data-i18n="sidebar_domains"><strong>Research Domains:</strong> International Trade, Customs, Technology Governance</span>
+        <span data-i18n="sidebar_methods"><strong>Methods:</strong> Policy Analysis, Machine Learning, Natural Language Processing, Visual Analytics</span>
+        <span data-i18n="sidebar_base"><strong>Current Base:</strong> Carnegie Mellon University, Heinz College</span>
       </div>
     </aside>
 
     <div class="content">
       <section class="hero">
-        <span class="eyebrow">Professional Profile</span>
-        <h2>Research on how data systems and institutional practice shape the governance of trade.</h2>
-        <p>I study how machine learning, administrative data, and analytic infrastructures reshape decision-making in public institutions, especially in customs and international trade. My work sits at the intersection of technical systems, institutional authority, and policy implementation.</p>
-        <p>Across customs operations, fiscal analytics, and regional digital trade integration, I am interested in how evidence becomes trustworthy, accountable, and usable once it enters real organizational workflows.</p>
+        <span class="eyebrow" data-i18n="hero_eyebrow">Professional Profile</span>
+        <h2 data-i18n="hero_title">Research on how data systems and institutional practice shape the governance of trade.</h2>
+        <p data-i18n="hero_p1">I study how machine learning, administrative data, and analytic infrastructures reshape decision-making in public institutions, especially in customs and international trade. My work sits at the intersection of technical systems, institutional authority, and policy implementation.</p>
+        <p data-i18n="hero_p2">Across customs operations, fiscal analytics, and regional digital trade integration, I am interested in how evidence becomes trustworthy, accountable, and usable once it enters real organizational workflows.</p>
       </section>
 
       <section class="section" id="about" data-section>
-        <span class="eyebrow">About</span>
-        <h2>Current activities and research directions.</h2>
-        <p class="section-lead">The work below reflects where I currently spend time: international advisory work, graduate teaching, research development, and building bridges between academic inquiry and institutional practice.</p>
+        <span class="eyebrow" data-i18n="about_eyebrow">About</span>
+        <h2 data-i18n="about_title">Current activities and research directions.</h2>
+        <p class="section-lead" data-i18n="about_lead">The work below reflects where I currently spend time: international advisory work, graduate teaching, research development, and building bridges between academic inquiry and institutional practice.</p>
         <div class="activity-grid">
           <article class="card">
-            <h3>WCO-accredited Data Analytics Expert</h3>
-            <p>Serve as a World Customs Organization representative advising customs administrations on integrating data analytics into institutional practice across Asia-Pacific, Latin America, and Europe.</p>
+            <h3 data-i18n="about_card1_title">WCO-accredited Data Analytics Expert</h3>
+            <p data-i18n="about_card1_body">Serve as a World Customs Organization representative advising customs administrations on integrating data analytics into institutional practice across Asia-Pacific, Latin America, and Europe.</p>
             <div class="tag-row"><span class="tag">WCO</span><span class="tag">Customs analytics</span><span class="tag">Institutional practice</span></div>
           </article>
           <article class="card">
-            <h3>Technology and Trade Governance Research</h3>
-            <p>Studying how data systems, classification standards, and analytics reshape customs and international trade governance.</p>
+            <h3 data-i18n="about_card2_title">Technology and Trade Governance Research</h3>
+            <p data-i18n="about_card2_body">Studying how data systems, classification standards, and analytics reshape customs and international trade governance.</p>
             <div class="tag-row"><span class="tag">Technology governance</span><span class="tag">Trade systems</span><span class="tag">Customs</span></div>
           </article>
           <article class="card">
-            <h3>Graduate Teaching Assistant, Carnegie Mellon</h3>
-            <p>Worked closely with Professor Mary Ellen Benedict to support graduate students in an intensive spring 2026 course on economic analysis, quantitative reasoning, and applied problem-solving.</p>
+            <h3 data-i18n="about_card3_title">Graduate Teaching Assistant, Carnegie Mellon</h3>
+            <p data-i18n="about_card3_body">Worked closely with Professor Mary Ellen Benedict to support graduate students in an intensive spring 2026 course on economic analysis, quantitative reasoning, and applied problem-solving.</p>
             <div class="tag-row"><span class="tag">Teaching</span><span class="tag">Economic analysis</span><span class="tag">CMU</span></div>
           </article>
           <article class="card">
-            <h3><a href="https://pskc.site/" target="_blank" rel="noreferrer">Advisory Board Chair, PSKC</a></h3>
-            <p>Chair the Advisory Board at the Center for Customs and Excise Studies, connecting academic research with policy practice in international trade and mentoring young researchers working at that intersection.</p>
+            <h3><a href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="about_card4_title">Advisory Board Chair, PSKC</a></h3>
+            <p data-i18n="about_card4_body">Chair the Advisory Board at the Center for Customs and Excise Studies, connecting academic research with policy practice in international trade and mentoring young researchers working at that intersection.</p>
             <div class="tag-row"><span class="tag">Research mentoring</span><span class="tag">Trade policy</span><span class="tag">Institutional bridge</span></div>
           </article>
         </div>
       </section>
 
       <section class="section" id="publication" data-section>
-        <span class="eyebrow">Publication</span>
-        <h2>Published work and ongoing manuscripts.</h2>
-        <p class="section-lead">This list reflects the publication record visible across your public profile and research pages: published work first, then manuscripts and research directions still in development.</p>
+        <span class="eyebrow" data-i18n="pub_eyebrow">Publication</span>
+        <h2 data-i18n="pub_title">Published work and ongoing manuscripts.</h2>
+        <p class="section-lead" data-i18n="pub_lead">This list reflects the publication record visible across your public profile and research pages: published work first, then manuscripts and research directions still in development.</p>
         <div class="pub-columns">
           <div class="pub-group">
-            <h3>Published</h3>
+            <h3 data-i18n="pub_group_published">Published</h3>
             <div class="pub-list">
               <article class="pub-item">
                 <div class="pub-title">Customs Fraud Detection Using Extremely Boosted Neural Network (XBNet)</div>
                 <div class="pub-meta">Jurnal BPPK · 2023</div>
-                <div class="pub-note">Applies ensemble deep learning to import declaration data to support fraud detection and customs risk management.</div>
+                <div class="pub-note" data-i18n="pub1_note">Applies ensemble deep learning to import declaration data to support fraud detection and customs risk management.</div>
                 <div class="pub-links">
-                  <a class="mini-link" href="https://www.researchgate.net/publication/376588365_CUSTOMS_FRAUD_DETECTION_USING_EXTREMELY_BOOSTED_NEURAL_NETWORK_XBNET" target="_blank" rel="noreferrer">Read paper</a>
+                  <a class="mini-link" href="https://www.researchgate.net/publication/376588365_CUSTOMS_FRAUD_DETECTION_USING_EXTREMELY_BOOSTED_NEURAL_NETWORK_XBNET" target="_blank" rel="noreferrer" data-i18n="read_paper">Read paper</a>
                 </div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Harmonized System Code Recommendation: A Multi-Class Classification Model</div>
                 <div class="pub-meta">Jurnal BPPK · 2024</div>
-                <div class="pub-note">Uses machine learning to classify goods descriptions into HS codes, linking text modeling to administrative accuracy and customs automation.</div>
+                <div class="pub-note" data-i18n="pub2_note">Uses machine learning to classify goods descriptions into HS codes, linking text modeling to administrative accuracy and customs automation.</div>
                 <div class="pub-links">
-                  <a class="mini-link" href="https://jurnalbppk.kemenkeu.go.id/jurnalbppk/user/setLocale/en_US?source=%2Fjurnalbppk%2Farticle%2Fview%2F879" target="_blank" rel="noreferrer">Read paper</a>
+                  <a class="mini-link" href="https://jurnalbppk.kemenkeu.go.id/jurnalbppk/user/setLocale/en_US?source=%2Fjurnalbppk%2Farticle%2Fview%2F879" target="_blank" rel="noreferrer" data-i18n="read_paper">Read paper</a>
                 </div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Impact of RCEP on Trade Balance and Indonesia's Potential Export</div>
                 <div class="pub-meta">Jurnal Perspektif Bea dan Cukai · 2023</div>
-                <div class="pub-note">Studies how regional trade liberalization affects trade balances and export potential using partial-equilibrium analysis.</div>
+                <div class="pub-note" data-i18n="pub3_note">Studies how regional trade liberalization affects trade balances and export potential using partial-equilibrium analysis.</div>
                 <div class="pub-links">
-                  <a class="mini-link" href="https://jurnal.pknstan.ac.id/index.php/PBC/article/view/2242" target="_blank" rel="noreferrer">Read paper</a>
+                  <a class="mini-link" href="https://jurnal.pknstan.ac.id/index.php/PBC/article/view/2242" target="_blank" rel="noreferrer" data-i18n="read_paper">Read paper</a>
                 </div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Measuring the Effectiveness of Plastic Excise Policy in Overcoming Environmental Pollution in Indonesia</div>
                 <div class="pub-meta">Jurnal Perspektif Bea dan Cukai · 2025</div>
-                <div class="pub-note">Evaluates plastic excise as an environmental policy instrument and compares it with alternative approaches.</div>
+                <div class="pub-note" data-i18n="pub4_note">Evaluates plastic excise as an environmental policy instrument and compares it with alternative approaches.</div>
                 <div class="pub-links">
-                  <a class="mini-link" href="https://jurnal.pknstan.ac.id/index.php/PBC/article/view/3272" target="_blank" rel="noreferrer">Read paper</a>
+                  <a class="mini-link" href="https://jurnal.pknstan.ac.id/index.php/PBC/article/view/3272" target="_blank" rel="noreferrer" data-i18n="read_paper">Read paper</a>
                 </div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Serial Potret Kebijakan Fiskal: Geliat Sektor Otomotif</div>
                 <div class="pub-meta">MelekAPBN · 2021</div>
-                <div class="pub-note">A policy-facing piece on fiscal performance and customs and excise revenue trends during Indonesia's post-pandemic recovery period.</div>
+                <div class="pub-note" data-i18n="pub5_note">A policy-facing piece on fiscal performance and customs and excise revenue trends during Indonesia's post-pandemic recovery period.</div>
                 <div class="pub-links">
-                  <a class="mini-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">Listed on LinkedIn</a>
+                  <a class="mini-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer" data-i18n="listed_linkedin">Listed on LinkedIn</a>
                 </div>
               </article>
             </div>
           </div>
 
           <div class="pub-group">
-            <h3>Working Papers and Manuscripts</h3>
+            <h3 data-i18n="pub_group_working">Working Papers and Manuscripts</h3>
             <div class="pub-list">
               <article class="pub-item">
                 <div class="pub-title">Technology Governance in Customs Analytics</div>
-                <div class="pub-meta">Working paper in development</div>
-                <div class="pub-note">Examines how analytics frameworks move across customs administrations and how the same tools produce different institutional effects in different countries.</div>
+                <div class="pub-meta" data-i18n="wp1_meta">Working paper in development</div>
+                <div class="pub-note" data-i18n="wp1_note">Examines how analytics frameworks move across customs administrations and how the same tools produce different institutional effects in different countries.</div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Customs Data Culture and Institutional Change</div>
-                <div class="pub-meta">Manuscript in preparation</div>
-                <div class="pub-note">Reflects on how data literacy initiatives and dashboard adoption reshape authority, judgment, and everyday practice inside customs organizations.</div>
+                <div class="pub-meta" data-i18n="wp2_meta">Manuscript in preparation</div>
+                <div class="pub-note" data-i18n="wp2_note">Reflects on how data literacy initiatives and dashboard adoption reshape authority, judgment, and everyday practice inside customs organizations.</div>
               </article>
               <article class="pub-item">
                 <div class="pub-title">Global Standards, Local Practice, and the Harmonized System</div>
-                <div class="pub-meta">Research in progress</div>
-                <div class="pub-note">Explores how technical classification standards function as governance infrastructure in international trade.</div>
+                <div class="pub-meta" data-i18n="wp3_meta">Research in progress</div>
+                <div class="pub-note" data-i18n="wp3_note">Explores how technical classification standards function as governance infrastructure in international trade.</div>
               </article>
             </div>
           </div>
@@ -869,20 +911,20 @@
       </section>
 
       <section class="section" id="project" data-section>
-        <span class="eyebrow">Project</span>
-        <h2>Projects, dashboards, and analytic products.</h2>
-        <p class="section-lead">These projects are drawn from your public record and cover code, dashboards, applied analytics, and institution-facing programs. Where public artifacts live on GitHub or Tableau, the cards point there directly; where the work is documented mainly through LinkedIn, the card uses that as the public reference.</p>
+        <span class="eyebrow" data-i18n="project_eyebrow">Project</span>
+        <h2 data-i18n="project_title">Projects, dashboards, and analytic products.</h2>
+        <p class="section-lead" data-i18n="project_lead">These projects are drawn from your public record and cover code, dashboards, applied analytics, and institution-facing programs. Where public artifacts live on GitHub or Tableau, the cards point there directly; where the work is documented mainly through LinkedIn, the card uses that as the public reference.</p>
         <div class="project-grid">
           <article class="card">
             <div class="project-top">
               <div>
                 <h3>StockMatch: Gamified AI Stock Recommender</h3>
-                <div class="project-type">Applied data science project</div>
+                <div class="project-type" data-i18n="proj1_type">Applied data science project</div>
               </div>
               <a class="primary-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub</a>
             </div>
-            <p>Built during HackCMU 2025, StockMatch uses swipe behavior, financial data, and AI-generated explanations to personalize stock discovery over time.</p>
-            <div class="project-panel"><strong>Highlights:</strong> swipe-based behavioral data capture, plain-English financial interpretation, and portfolio construction using volatility, sector exposure, and diversification constraints.</div>
+            <p data-i18n="proj1_body">Built during HackCMU 2025, StockMatch uses swipe behavior, financial data, and AI-generated explanations to personalize stock discovery over time.</p>
+            <div class="project-panel" data-i18n="proj1_panel"><strong>Highlights:</strong> swipe-based behavioral data capture, plain-English financial interpretation, and portfolio construction using volatility, sector exposure, and diversification constraints.</div>
             <div class="tag-row"><span class="tag">Machine learning</span><span class="tag">LLM</span><span class="tag">Recommendation systems</span></div>
           </article>
 
@@ -890,12 +932,12 @@
             <div class="project-top">
               <div>
                 <h3>Customs Data Culture 2023</h3>
-                <div class="project-type">Institutional transformation initiative</div>
+                <div class="project-type" data-i18n="proj2_type">Institutional transformation initiative</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>Context</a>
+              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="context_link">Context</span></a>
             </div>
-            <p>Initiated and managed a nationwide customs analytics adoption effort across more than 30 units, building a shared data culture for policy execution and reducing manual reporting burdens.</p>
-            <div class="project-panel"><strong>Highlights:</strong> analytics rollout across multiple units, training for BI and data analysts, and recognized institutional impact on day-to-day practice.</div>
+            <p data-i18n="proj2_body">Initiated and managed a nationwide customs analytics adoption effort across more than 30 units, building a shared data culture for policy execution and reducing manual reporting burdens.</p>
+            <div class="project-panel" data-i18n="proj2_panel"><strong>Highlights:</strong> analytics rollout across multiple units, training for BI and data analysts, and recognized institutional impact on day-to-day practice.</div>
             <div class="tag-row"><span class="tag">Change management</span><span class="tag">Data culture</span><span class="tag">Leadership</span></div>
           </article>
 
@@ -903,12 +945,12 @@
             <div class="project-top">
               <div>
                 <h3>HS Code Prediction Model</h3>
-                <div class="project-type">Customs classification model</div>
+                <div class="project-type" data-i18n="proj3_type">Customs classification model</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>Project note</a>
+              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
             </div>
-            <p>Designed a multi-class text classification model using TF-IDF and LinearSVC to predict Harmonized System codes from commodity descriptions.</p>
-            <div class="project-panel"><strong>Highlights:</strong> administrative text classification, customs automation, and a direct bridge between model performance and classification judgment in trade operations.</div>
+            <p data-i18n="proj3_body">Designed a multi-class text classification model using TF-IDF and LinearSVC to predict Harmonized System codes from commodity descriptions.</p>
+            <div class="project-panel" data-i18n="proj3_panel"><strong>Highlights:</strong> administrative text classification, customs automation, and a direct bridge between model performance and classification judgment in trade operations.</div>
             <div class="tag-row"><span class="tag">NLP</span><span class="tag">TF-IDF</span><span class="tag">LinearSVC</span></div>
           </article>
 
@@ -916,12 +958,12 @@
             <div class="project-top">
               <div>
                 <h3>A Dynamic Trade Circumvention Dashboard</h3>
-                <div class="project-type">Trade analytics dashboard</div>
+                <div class="project-type" data-i18n="proj4_type">Trade analytics dashboard</div>
               </div>
               <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg>Tableau</a>
             </div>
-            <p>Built a dashboard to detect possible trade circumvention by combining Share-Shift and Trade Intensity metrics across international trade data.</p>
-            <div class="project-panel"><strong>Highlights:</strong> anomaly detection for transshipment patterns, dashboard-based policy interpretation, and trade-route diagnostics for tariff evasion risk.</div>
+            <p data-i18n="proj4_body">Built a dashboard to detect possible trade circumvention by combining Share-Shift and Trade Intensity metrics across international trade data.</p>
+            <div class="project-panel" data-i18n="proj4_panel"><strong>Highlights:</strong> anomaly detection for transshipment patterns, dashboard-based policy interpretation, and trade-route diagnostics for tariff evasion risk.</div>
             <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Trade data</span><span class="tag">Risk analytics</span></div>
           </article>
 
@@ -929,12 +971,12 @@
             <div class="project-top">
               <div>
                 <h3>Free Trade Agreement Impact Dashboard</h3>
-                <div class="project-type">Trade policy dashboard</div>
+                <div class="project-type" data-i18n="proj5_type">Trade policy dashboard</div>
               </div>
               <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg>Tableau</a>
             </div>
-            <p>Built an analytical dashboard on Free Trade Agreement impacts, trade balance shifts, and provincial export potential to support evidence-based trade policy interpretation.</p>
-            <div class="project-panel"><strong>Highlights:</strong> trade balance monitoring, province-level export opportunity mapping, and visual support for comparative policy analysis.</div>
+            <p data-i18n="proj5_body">Built an analytical dashboard on Free Trade Agreement impacts, trade balance shifts, and provincial export potential to support evidence-based trade policy interpretation.</p>
+            <div class="project-panel" data-i18n="proj5_panel"><strong>Highlights:</strong> trade balance monitoring, province-level export opportunity mapping, and visual support for comparative policy analysis.</div>
             <div class="tag-row"><span class="tag">Tableau</span><span class="tag">FTA</span><span class="tag">Export mapping</span></div>
           </article>
 
@@ -942,12 +984,12 @@
             <div class="project-top">
               <div>
                 <h3>Chicago Crash Risk Intelligence Platform</h3>
-                <div class="project-type">Urban policy analytics</div>
+                <div class="project-type" data-i18n="proj6_type">Urban policy analytics</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>Project note</a>
+              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
             </div>
-            <p>Built a machine learning pipeline on 800K+ Chicago crash records to identify severe-crash risk and spatial hotspots for proactive policy intervention.</p>
-            <div class="project-panel"><strong>Highlights:</strong> feature engineering on spatiotemporal data, classification for severe crash prediction, and DBSCAN hotspot detection.</div>
+            <p data-i18n="proj6_body">Built a machine learning pipeline on 800K+ Chicago crash records to identify severe-crash risk and spatial hotspots for proactive policy intervention.</p>
+            <div class="project-panel" data-i18n="proj6_panel"><strong>Highlights:</strong> feature engineering on spatiotemporal data, classification for severe crash prediction, and DBSCAN hotspot detection.</div>
             <div class="tag-row"><span class="tag">Policy analytics</span><span class="tag">Clustering</span><span class="tag">Risk prediction</span></div>
           </article>
 
@@ -955,12 +997,12 @@
             <div class="project-top">
               <div>
                 <h3>Modeling Post-Study Work Pathways</h3>
-                <div class="project-type">Interactive policy simulator</div>
+                <div class="project-type" data-i18n="proj7_type">Interactive policy simulator</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>Project note</a>
+              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
             </div>
-            <p>Developed a simulator for H-1B, OPT, and CPT responses under a large fee shock, using elasticity assumptions and administrative data to trace cross-program effects.</p>
-            <div class="project-panel"><strong>Highlights:</strong> policy scenario modeling, labor-market response estimation, and regulatory spillover analysis across linked visa pathways.</div>
+            <p data-i18n="proj7_body">Developed a simulator for H-1B, OPT, and CPT responses under a large fee shock, using elasticity assumptions and administrative data to trace cross-program effects.</p>
+            <div class="project-panel" data-i18n="proj7_panel"><strong>Highlights:</strong> policy scenario modeling, labor-market response estimation, and regulatory spillover analysis across linked visa pathways.</div>
             <div class="tag-row"><span class="tag">Economics</span><span class="tag">Policy simulation</span><span class="tag">Immigration</span></div>
           </article>
 
@@ -968,12 +1010,12 @@
             <div class="project-top">
               <div>
                 <h3>WCO-SECO Global Trade Facilitation Programme</h3>
-                <div class="project-type">International customs capacity building</div>
+                <div class="project-type" data-i18n="proj8_type">International customs capacity building</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>Project note</a>
+              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
             </div>
-            <p>Co-facilitated a five-day analytics workshop for SUNAT in Peru focused on risk management, customs valuation data, and embedding analytics into operational decision-making.</p>
-            <div class="project-panel"><strong>Highlights:</strong> institutional adoption of analytics, customs valuation workflows, and cross-country adaptation of shared analytical frameworks.</div>
+            <p data-i18n="proj8_body">Co-facilitated a five-day analytics workshop for SUNAT in Peru focused on risk management, customs valuation data, and embedding analytics into operational decision-making.</p>
+            <div class="project-panel" data-i18n="proj8_panel"><strong>Highlights:</strong> institutional adoption of analytics, customs valuation workflows, and cross-country adaptation of shared analytical frameworks.</div>
             <div class="tag-row"><span class="tag">Workshop design</span><span class="tag">Capacity building</span><span class="tag">Peru</span></div>
           </article>
 
@@ -981,31 +1023,31 @@
             <div class="project-top">
               <div>
                 <h3>National Workshop on Data Analytics for Viet Nam Customs</h3>
-                <div class="project-type">Applied training program</div>
+                <div class="project-type" data-i18n="proj9_type">Applied training program</div>
               </div>
-              <a class="primary-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>Workshop note</a>
+              <a class="primary-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="workshop_note_link">Workshop note</span></a>
             </div>
-            <p>Co-facilitated a national workshop in Hanoi covering Python-based preprocessing, fraud detection, HS classification, and institutional readiness for analytics adoption.</p>
-            <div class="project-panel"><strong>Highlights:</strong> technical training plus governance-oriented implementation, with emphasis on how common tools are localized inside different customs systems.</div>
+            <p data-i18n="proj9_body">Co-facilitated a national workshop in Hanoi covering Python-based preprocessing, fraud detection, HS classification, and institutional readiness for analytics adoption.</p>
+            <div class="project-panel" data-i18n="proj9_panel"><strong>Highlights:</strong> technical training plus governance-oriented implementation, with emphasis on how common tools are localized inside different customs systems.</div>
             <div class="tag-row"><span class="tag">Python</span><span class="tag">Fraud detection</span><span class="tag">Viet Nam Customs</span></div>
           </article>
         </div>
       </section>
 
       <section class="section" id="cv" data-section>
-        <span class="eyebrow">CV</span>
-        <h2>Curriculum vitae.</h2>
+        <span class="eyebrow" data-i18n="cv_eyebrow">CV</span>
+        <h2 data-i18n="cv_title">Curriculum vitae.</h2>
         <div class="cv-shell">
           <div class="cv-top">
-            <p>The embedded PDF below is the current CV. You can read it directly on the page or open the standalone file.</p>
+            <p data-i18n="cv_lead">The embedded PDF below is the current CV. You can read it directly on the page or open the standalone file.</p>
             <div class="cv-actions">
-              <a class="primary-link" href="assets/diyouva-novith-cv.pdf" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg>Open PDF</a>
-              <a class="primary-link" href="assets/diyouva-novith-cv.pdf" download><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>Download</a>
+              <a class="primary-link" href="assets/diyouva-novith-cv.pdf" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg><span data-i18n="open_pdf">Open PDF</span></a>
+              <a class="primary-link" href="assets/diyouva-novith-cv.pdf" download><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="download">Download</span></a>
             </div>
           </div>
           <div class="pdf-frame">
             <object data="assets/diyouva-novith-cv.pdf#view=FitH" type="application/pdf" aria-label="Embedded PDF of Diyouva Novith CV">
-              <div class="pdf-fallback">
+              <div class="pdf-fallback" data-i18n-html="cv_fallback">
                 Your browser cannot display the PDF inline. Please use <a href="assets/diyouva-novith-cv.pdf" target="_blank" rel="noreferrer">this link to open the CV</a>.
               </div>
             </object>
@@ -1014,19 +1056,19 @@
       </section>
 
       <section class="section" id="talk" data-section>
-        <span class="eyebrow">Talk</span>
-        <h2>Workshops, teaching, and public-facing activity.</h2>
-        <p class="section-lead">These entries focus on occasions where the work became public-facing: teaching, workshop facilitation, institutional advising, and mentoring. Some overlap with project work because the delivery itself was central to the contribution.</p>
+        <span class="eyebrow" data-i18n="talk_eyebrow">Talk</span>
+        <h2 data-i18n="talk_title">Workshops, teaching, and public-facing activity.</h2>
+        <p class="section-lead" data-i18n="talk_lead">These entries focus on occasions where the work became public-facing: teaching, workshop facilitation, institutional advising, and mentoring. Some overlap with project work because the delivery itself was central to the contribution.</p>
         <div class="talk-list">
           <article class="talk-item">
             <div class="talk-head">
               <div class="talk-title">WCO-SECO Global Trade Facilitation Programme</div>
-              <div class="talk-meta">National workshop for SUNAT, Peru</div>
+              <div class="talk-meta" data-i18n="talk1_meta">National workshop for SUNAT, Peru</div>
               <div class="talk-year">March 2026</div>
             </div>
-            <p>Co-facilitated a five-day national workshop on customs analytics, risk management, and valuation data use for Peru's customs and tax administration.</p>
+            <p data-i18n="talk1_body">Co-facilitated a five-day national workshop on customs analytics, risk management, and valuation data use for Peru's customs and tax administration.</p>
             <div class="pub-links">
-              <a class="mini-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer">LinkedIn reference</a>
+              <a class="mini-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
             </div>
           </article>
 
@@ -1036,49 +1078,49 @@
               <div class="talk-meta">National Workshop on Data Analytics for Viet Nam Customs</div>
               <div class="talk-year">December 2025</div>
             </div>
-            <p>Contributed as a data analytics expert in a World Customs Organization workshop focused on AI readiness, data quality, and institutional adoption of analytics.</p>
+            <p data-i18n="talk2_body">Contributed as a data analytics expert in a World Customs Organization workshop focused on AI readiness, data quality, and institutional adoption of analytics.</p>
             <div class="pub-links">
-              <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer">Workshop note</a>
+              <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer" data-i18n="workshop_note_link">Workshop note</a>
             </div>
           </article>
 
           <article class="talk-item">
             <div class="talk-head">
               <div class="talk-title">Graduate Teaching Assistant</div>
-              <div class="talk-meta">Economic Analysis, Carnegie Mellon University</div>
+              <div class="talk-meta" data-i18n="talk3_meta">Economic Analysis, Carnegie Mellon University</div>
               <div class="talk-year">Spring 2026</div>
             </div>
-            <p>Supported graduate students in an intensive economic analysis course, working closely on core economic concepts, quantitative reasoning, and applied policy problem-solving.</p>
+            <p data-i18n="talk3_body">Supported graduate students in an intensive economic analysis course, working closely on core economic concepts, quantitative reasoning, and applied policy problem-solving.</p>
           </article>
 
           <article class="talk-item">
             <div class="talk-head">
               <div class="talk-title">Kemenkeu Mengajar</div>
-              <div class="talk-meta">Volunteer teaching initiative</div>
+              <div class="talk-meta" data-i18n="talk4_meta">Volunteer teaching initiative</div>
               <div class="talk-year">October 2023</div>
             </div>
-            <p>Contributed as a volunteer teacher in a Ministry of Finance education initiative, extending public-facing teaching beyond formal institutional analytics work.</p>
+            <p data-i18n="talk4_body">Contributed as a volunteer teacher in a Ministry of Finance education initiative, extending public-facing teaching beyond formal institutional analytics work.</p>
           </article>
 
           <article class="talk-item">
             <div class="talk-head">
               <div class="talk-title">Training and Mentoring Through PSKC</div>
-              <div class="talk-meta">Center for Customs and Excise Studies</div>
-              <div class="talk-year">Ongoing</div>
+              <div class="talk-meta" data-i18n="talk5_meta">Center for Customs and Excise Studies</div>
+              <div class="talk-year" data-i18n="ongoing">Ongoing</div>
             </div>
-            <p>Mentor young researchers and help connect academic work with institutional practice in customs and international trade.</p>
+            <p data-i18n="talk5_body">Mentor young researchers and help connect academic work with institutional practice in customs and international trade.</p>
             <div class="pub-links">
-              <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer">PSKC site</a>
+              <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="pskc_site">PSKC site</a>
             </div>
           </article>
 
           <article class="talk-item">
             <div class="talk-head">
               <div class="talk-title">Independent Community Teaching</div>
-              <div class="talk-meta">Oecusse border community initiative</div>
+              <div class="talk-meta" data-i18n="talk6_meta">Oecusse border community initiative</div>
               <div class="talk-year">2019</div>
             </div>
-            <p>Raised funds and taught English and Indonesian while leading motivational sessions for children in the Indonesia-Timor-Leste border community.</p>
+            <p data-i18n="talk6_body">Raised funds and taught English and Indonesian while leading motivational sessions for children in the Indonesia-Timor-Leste border community.</p>
           </article>
         </div>
       </section>
@@ -1088,7 +1130,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Diyouva Christa Novith</span>
-      <span>Researcher and data scientist focused on trade, customs, and technology governance.</span>
+      <span data-i18n="footer_note">Researcher and data scientist focused on trade, customs, and technology governance.</span>
     </div>
   </footer>
 
@@ -1096,15 +1138,170 @@
     const root = document.documentElement;
     const themeToggle = document.querySelector(".theme-toggle");
     const themeToggleLabel = document.querySelector(".theme-toggle-label");
+    const langButtons = [...document.querySelectorAll(".lang-button")];
     const sections = [...document.querySelectorAll("[data-section]")];
     const navLinks = [...document.querySelectorAll(".nav-link")];
     const navMap = new Map(navLinks.map((link) => [link.getAttribute("href").slice(1), link]));
+    const textNodes = [...document.querySelectorAll("[data-i18n]")];
+    const htmlNodes = [...document.querySelectorAll("[data-i18n-html]")];
+    const translations = {
+      title: {
+        en: "Diyouva Christa Novith | Trade and Technology Governance",
+        fr: "Diyouva Christa Novith | Gouvernance du commerce et des technologies"
+      },
+      nav_about: { fr: "À propos" },
+      nav_publication: { fr: "Publications" },
+      nav_project: { fr: "Projets" },
+      nav_cv: { fr: "CV" },
+      nav_talk: { fr: "Interventions" },
+      sidebar_role: { fr: "Recherche et data science appliquées au commerce, aux douanes et à la gouvernance des technologies. Accréditation OMD en analytique des données, avec une expérience du secteur public en analytique douanière et en transformation institutionnelle." },
+      contact_linkedin: { fr: "LinkedIn" },
+      contact_profile: { fr: "Profil" },
+      contact_scholar: { fr: "Google Scholar" },
+      contact_publications: { fr: "Publications" },
+      contact_email: { fr: "E-mail" },
+      sidebar_domains: { fr: "<strong>Domaines de recherche :</strong> Commerce international, douanes, gouvernance des technologies" },
+      sidebar_methods: { fr: "<strong>Méthodes :</strong> Analyse des politiques publiques, apprentissage automatique, traitement automatique du langage, analytique visuelle" },
+      sidebar_base: { fr: "<strong>Base actuelle :</strong> Carnegie Mellon University, Heinz College" },
+      hero_eyebrow: { fr: "Profil professionnel" },
+      hero_title: { fr: "Recherche sur la manière dont les systèmes de données et les pratiques institutionnelles façonnent la gouvernance du commerce." },
+      hero_p1: { fr: "J'étudie comment l'apprentissage automatique, les données administratives et les infrastructures analytiques transforment la prise de décision dans les institutions publiques, en particulier dans les douanes et le commerce international. Mon travail se situe à l'intersection des systèmes techniques, de l'autorité institutionnelle et de la mise en oeuvre des politiques." },
+      hero_p2: { fr: "À travers les opérations douanières, l'analytique fiscale et l'intégration commerciale numérique régionale, je m'intéresse à la manière dont les preuves deviennent fiables, responsables et utilisables une fois intégrées dans de véritables flux organisationnels." },
+      about_eyebrow: { fr: "À propos" },
+      about_title: { fr: "Activités actuelles et orientations de recherche." },
+      about_lead: { fr: "Les travaux ci-dessous reflètent où je consacre actuellement mon temps : conseil international, enseignement universitaire, développement de la recherche et passerelles entre enquête académique et pratique institutionnelle." },
+      about_card1_title: { fr: "Accréditation OMD en analytique des données" },
+      about_card1_body: { fr: "J'interviens en tant que représentante de l'Organisation mondiale des douanes pour conseiller les administrations douanières sur l'intégration de l'analytique des données dans les pratiques institutionnelles en Asie-Pacifique, en Amérique latine et en Europe." },
+      about_card2_title: { fr: "Recherche sur la gouvernance du commerce et des technologies" },
+      about_card2_body: { fr: "J'étudie comment les systèmes de données, les normes de classification et l'analytique transforment la gouvernance des douanes et du commerce international." },
+      about_card3_title: { fr: "Assistanat d'enseignement, Carnegie Mellon" },
+      about_card3_body: { fr: "J'ai travaillé avec la professeure Mary Ellen Benedict pour accompagner les étudiants de deuxième cycle dans un cours intensif de printemps 2026 sur l'analyse économique, le raisonnement quantitatif et la résolution appliquée de problèmes." },
+      about_card4_title: { fr: "Présidence du conseil consultatif, PSKC" },
+      about_card4_body: { fr: "Je préside le conseil consultatif du Center for Customs and Excise Studies, en reliant la recherche académique à la pratique des politiques publiques en commerce international et en accompagnant de jeunes chercheurs à cette intersection." },
+      pub_eyebrow: { fr: "Publications" },
+      pub_title: { fr: "Travaux publiés et manuscrits en cours." },
+      pub_lead: { fr: "Cette liste reflète le parcours de publication visible sur votre profil public et vos pages de recherche : d'abord les travaux publiés, puis les manuscrits et pistes de recherche encore en développement." },
+      pub_group_published: { fr: "Publié" },
+      read_paper: { fr: "Lire l'article" },
+      pub1_note: { fr: "Applique un modèle d'ensemble fondé sur l'apprentissage profond aux déclarations d'importation afin de soutenir la détection de fraude et la gestion du risque douanier." },
+      pub2_note: { fr: "Utilise l'apprentissage automatique pour classer les descriptions de marchandises en codes SH, en reliant la modélisation textuelle à la précision administrative et à l'automatisation douanière." },
+      pub3_note: { fr: "Étudie comment la libéralisation commerciale régionale affecte les balances commerciales et le potentiel d'exportation à l'aide d'une analyse en équilibre partiel." },
+      pub4_note: { fr: "Évalue les droits d'accise sur le plastique comme instrument de politique environnementale et les compare à d'autres approches." },
+      pub5_note: { fr: "Texte orienté politique publique sur la performance budgétaire et les tendances des recettes douanières et d'accise pendant la reprise post-pandémique de l'Indonésie." },
+      listed_linkedin: { fr: "Référencé sur LinkedIn" },
+      pub_group_working: { fr: "Working papers et manuscrits" },
+      wp1_meta: { fr: "Working paper en développement" },
+      wp1_note: { fr: "Examine comment les cadres analytiques circulent entre administrations douanières et comment les mêmes outils produisent des effets institutionnels différents selon les pays." },
+      wp2_meta: { fr: "Manuscrit en préparation" },
+      wp2_note: { fr: "Analyse comment les initiatives de culture des données et l'adoption des tableaux de bord transforment l'autorité, le jugement et les pratiques quotidiennes dans les organisations douanières." },
+      wp3_meta: { fr: "Recherche en cours" },
+      wp3_note: { fr: "Étudie comment les normes techniques de classification fonctionnent comme infrastructure de gouvernance dans le commerce international." },
+      project_eyebrow: { fr: "Projets" },
+      project_title: { fr: "Projets, tableaux de bord et produits analytiques." },
+      project_lead: { fr: "Ces projets sont tirés de votre dossier public et couvrent le code, les tableaux de bord, l'analytique appliquée et les programmes à destination des institutions. Lorsque les artefacts publics sont sur GitHub ou Tableau, les cartes y renvoient directement ; lorsque le travail est surtout documenté sur LinkedIn, la carte utilise ce profil comme référence publique." },
+      proj1_type: { fr: "Projet appliqué de data science" },
+      proj1_body: { fr: "Réalisé pendant HackCMU 2025, StockMatch utilise le comportement de balayage, les données financières et des explications générées par IA pour personnaliser la découverte d'actions au fil du temps." },
+      proj1_panel: { fr: "<strong>Points saillants :</strong> capture comportementale par balayage, interprétation financière en langage clair et construction de portefeuille selon la volatilité, l'exposition sectorielle et la diversification." },
+      proj2_type: { fr: "Initiative de transformation institutionnelle" },
+      context_link: { fr: "Contexte" },
+      proj2_body: { fr: "J'ai lancé et piloté un effort national d'adoption de l'analytique douanière dans plus de 30 unités, en développant une culture commune des données pour l'exécution des politiques et en réduisant la charge de reporting manuel." },
+      proj2_panel: { fr: "<strong>Points saillants :</strong> déploiement analytique dans de multiples unités, formation des utilisateurs BI et des analystes de données, et impact institutionnel reconnu sur les pratiques quotidiennes." },
+      proj3_type: { fr: "Modèle de classification douanière" },
+      project_note_link: { fr: "Note de projet" },
+      proj3_body: { fr: "Conception d'un modèle de classification multiclasses utilisant TF-IDF et LinearSVC pour prédire les codes du Système harmonisé à partir des descriptions de marchandises." },
+      proj3_panel: { fr: "<strong>Points saillants :</strong> classification de textes administratifs, automatisation douanière et lien direct entre performance du modèle et jugement de classification dans les opérations commerciales." },
+      proj4_type: { fr: "Tableau de bord d'analytique commerciale" },
+      proj4_body: { fr: "Création d'un tableau de bord pour détecter d'éventuels contournements commerciaux en combinant les métriques Share-Shift et Trade Intensity sur des données de commerce international." },
+      proj4_panel: { fr: "<strong>Points saillants :</strong> détection d'anomalies de transbordement, interprétation des politiques via tableau de bord et diagnostic des routes commerciales à risque d'évasion tarifaire." },
+      proj5_type: { fr: "Tableau de bord de politique commerciale" },
+      proj5_body: { fr: "Création d'un tableau de bord analytique sur les effets des accords de libre-échange, les variations de balance commerciale et le potentiel d'exportation provincial pour soutenir une interprétation fondée sur les données." },
+      proj5_panel: { fr: "<strong>Points saillants :</strong> suivi de la balance commerciale, cartographie des opportunités d'exportation par province et appui visuel à l'analyse comparative des politiques." },
+      proj6_type: { fr: "Analytique de politique urbaine" },
+      proj6_body: { fr: "Développement d'un pipeline de machine learning sur plus de 800 000 données d'accidents à Chicago afin d'identifier les risques de gravité et les points chauds spatiaux pour une intervention proactive." },
+      proj6_panel: { fr: "<strong>Points saillants :</strong> ingénierie de variables spatio-temporelles, classification pour prédire les accidents graves et détection de points chauds par DBSCAN." },
+      proj7_type: { fr: "Simulateur interactif de politiques publiques" },
+      proj7_body: { fr: "Développement d'un simulateur des réponses H-1B, OPT et CPT à un choc tarifaire majeur, en utilisant des hypothèses d'élasticité et des données administratives pour suivre les effets croisés entre dispositifs." },
+      proj7_panel: { fr: "<strong>Points saillants :</strong> modélisation de scénarios politiques, estimation des réponses du marché du travail et analyse des effets réglementaires entre voies migratoires liées." },
+      proj8_type: { fr: "Renforcement international des capacités douanières" },
+      proj8_body: { fr: "Coanimation d'un atelier analytique de cinq jours pour la SUNAT au Pérou, centré sur la gestion du risque, les données de valorisation douanière et l'intégration de l'analytique dans la décision opérationnelle." },
+      proj8_panel: { fr: "<strong>Points saillants :</strong> adoption institutionnelle de l'analytique, flux de travail de valorisation douanière et adaptation transnationale de cadres analytiques communs." },
+      proj9_type: { fr: "Programme de formation appliquée" },
+      workshop_note_link: { fr: "Note d'atelier" },
+      proj9_body: { fr: "Coanimation d'un atelier national à Hanoï sur le prétraitement Python, la détection de fraude, la classification SH et la préparation institutionnelle à l'adoption de l'analytique." },
+      proj9_panel: { fr: "<strong>Points saillants :</strong> formation technique et mise en oeuvre orientée gouvernance, avec attention portée à la localisation des outils communs dans différents systèmes douaniers." },
+      cv_eyebrow: { fr: "CV" },
+      cv_title: { fr: "Curriculum vitae." },
+      cv_lead: { fr: "Le PDF intégré ci-dessous correspond au CV actuel. Vous pouvez le lire directement sur la page ou ouvrir le fichier séparément." },
+      open_pdf: { fr: "Ouvrir le PDF" },
+      download: { fr: "Télécharger" },
+      cv_fallback: { fr: "Votre navigateur ne peut pas afficher le PDF dans la page. Veuillez utiliser <a href=\"assets/diyouva-novith-cv.pdf\" target=\"_blank\" rel=\"noreferrer\">ce lien pour ouvrir le CV</a>." },
+      talk_eyebrow: { fr: "Interventions" },
+      talk_title: { fr: "Ateliers, enseignement et activités publiques." },
+      talk_lead: { fr: "Ces entrées mettent l'accent sur les moments où le travail est devenu public : enseignement, animation d'ateliers, conseil institutionnel et mentorat. Certaines recoupent des projets, car la mise en oeuvre elle-même constituait une part centrale de la contribution." },
+      talk1_meta: { fr: "Atelier national pour la SUNAT, Pérou" },
+      talk1_body: { fr: "Coanimation d'un atelier national de cinq jours sur l'analytique douanière, la gestion du risque et l'utilisation des données de valorisation pour l'administration douanière et fiscale du Pérou." },
+      linkedin_reference: { fr: "Référence LinkedIn" },
+      talk2_body: { fr: "Contribution comme experte en analytique des données dans un atelier de l'Organisation mondiale des douanes axé sur la préparation à l'IA, la qualité des données et l'adoption institutionnelle de l'analytique." },
+      talk3_meta: { fr: "Analyse économique, Carnegie Mellon University" },
+      talk3_body: { fr: "Accompagnement d'étudiants de deuxième cycle dans un cours intensif d'analyse économique, en travaillant sur les concepts économiques fondamentaux, le raisonnement quantitatif et la résolution appliquée de problèmes de politique publique." },
+      talk4_meta: { fr: "Initiative bénévole d'enseignement" },
+      talk4_body: { fr: "Participation bénévole à une initiative éducative du ministère des Finances, prolongeant l'engagement public au-delà du travail analytique institutionnel formel." },
+      talk5_meta: { fr: "Center for Customs and Excise Studies" },
+      ongoing: { fr: "En cours" },
+      talk5_body: { fr: "Mentorat de jeunes chercheurs et contribution au rapprochement entre travail académique et pratique institutionnelle en douanes et commerce international." },
+      pskc_site: { fr: "Site PSKC" },
+      talk6_meta: { fr: "Initiative communautaire à la frontière d'Oecusse" },
+      talk6_body: { fr: "Collecte de fonds et enseignement de l'anglais et de l'indonésien, avec animation de séances de motivation pour des enfants de la communauté frontalière Indonésie-Timor-Leste." },
+      footer_note: { fr: "Recherche et data science appliquées au commerce, aux douanes et à la gouvernance des technologies." },
+      theme_light: { fr: "Mode clair" },
+      theme_dark: { fr: "Mode sombre" }
+    };
+
+    textNodes.forEach((node) => {
+      if (!node.dataset.en) {
+        node.dataset.en = node.innerHTML;
+      }
+    });
+
+    htmlNodes.forEach((node) => {
+      if (!node.dataset.enHtml) {
+        node.dataset.enHtml = node.innerHTML;
+      }
+    });
 
     const syncThemeToggle = () => {
       const current = root.dataset.theme === "dark" ? "dark" : "light";
-      themeToggleLabel.textContent = current === "dark" ? "Light mode" : "Dark mode";
+      const lang = root.lang === "fr" ? "fr" : "en";
+      themeToggleLabel.textContent = current === "dark"
+        ? (translations.theme_light[lang] || "Light mode")
+        : (translations.theme_dark[lang] || "Dark mode");
       themeToggle.setAttribute("aria-pressed", String(current === "dark"));
       themeToggle.setAttribute("title", current === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    };
+
+    const applyLanguage = (lang) => {
+      root.lang = lang;
+      document.title = translations.title[lang] || translations.title.en;
+
+      textNodes.forEach((node) => {
+        const key = node.dataset.i18n;
+        const value = translations[key] && translations[key][lang];
+        node.innerHTML = value || node.dataset.en;
+      });
+
+      htmlNodes.forEach((node) => {
+        const key = node.dataset.i18nHtml;
+        const value = translations[key] && translations[key][lang];
+        node.innerHTML = value || node.dataset.enHtml;
+      });
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+        button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+      });
+
+      localStorage.setItem("lang-preference", lang);
+      syncThemeToggle();
     };
 
     const setActiveLink = (id) => {
@@ -1118,7 +1315,11 @@
       syncThemeToggle();
     });
 
-    syncThemeToggle();
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+    });
+
+    applyLanguage(localStorage.getItem("lang-preference") || "en");
 
     const observer = new IntersectionObserver(
       (entries) => {
