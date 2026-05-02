@@ -1272,11 +1272,12 @@
     const syncThemeToggle = () => {
       const current = root.dataset.theme === "dark" ? "dark" : "light";
       const lang = root.lang === "fr" ? "fr" : "en";
-      themeToggleLabel.textContent = current === "dark"
+      const nextLabel = current === "dark"
         ? (translations.theme_light[lang] || "Light mode")
         : (translations.theme_dark[lang] || "Dark mode");
+      themeToggleLabel.textContent = nextLabel;
       themeToggle.setAttribute("aria-pressed", String(current === "dark"));
-      themeToggle.setAttribute("title", current === "dark" ? "Switch to light mode" : "Switch to dark mode");
+      themeToggle.setAttribute("title", nextLabel);
     };
 
     const applyLanguage = (lang) => {
