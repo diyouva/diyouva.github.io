@@ -138,25 +138,47 @@
     }
 
     .nav-link,
-    .theme-note {
+    .theme-toggle {
       padding: 0.45rem 0.72rem;
       border-radius: 999px;
       border: 1px solid transparent;
       color: var(--muted);
       font-size: 0.92rem;
-      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
     }
 
     .nav-link:hover,
     .nav-link.active {
-      background: var(--accent-soft);
-      border-color: color-mix(in srgb, var(--accent-3) 36%, transparent);
+      background: color-mix(in srgb, var(--accent-4) 16%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 32%, transparent);
       color: var(--text);
     }
 
-    .theme-note {
-      background: color-mix(in srgb, var(--surface-soft) 76%, transparent);
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: color-mix(in srgb, var(--surface-soft) 46%, var(--surface));
       border-color: var(--line);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      background: color-mix(in srgb, var(--accent-2) 8%, var(--surface));
+      border-color: color-mix(in srgb, var(--accent-2) 38%, transparent);
+      color: var(--text);
+    }
+
+    .toggle-dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 14%, transparent);
+      flex: 0 0 auto;
     }
 
     .page {
@@ -221,8 +243,8 @@
 
     .contact-link:hover {
       transform: translateY(-1px);
-      border-color: color-mix(in srgb, var(--accent-3) 40%, transparent);
-      background: var(--accent-soft);
+      border-color: color-mix(in srgb, var(--accent-2) 36%, transparent);
+      background: color-mix(in srgb, var(--accent-2) 8%, var(--surface-soft));
     }
 
     .contact-link .label {
@@ -241,7 +263,7 @@
       width: 1.05rem;
       height: 1.05rem;
       fill: currentColor;
-      color: var(--accent-3);
+      color: var(--accent-2);
       flex: 0 0 auto;
     }
 
@@ -344,7 +366,7 @@
 
     .card:hover {
       transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent-3) 36%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 30%, transparent);
       box-shadow: var(--glow);
     }
 
@@ -369,8 +391,8 @@
     .tag {
       padding: 0.28rem 0.58rem;
       border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--accent-3) 30%, transparent);
-      background: var(--accent-soft);
+      border: 1px solid color-mix(in srgb, var(--accent-3) 36%, transparent);
+      background: color-mix(in srgb, var(--accent-3) 15%, transparent);
       color: var(--text);
       font-size: 0.78rem;
       line-height: 1;
@@ -402,7 +424,7 @@
     }
 
     .pub-item {
-      border-left: 3px solid color-mix(in srgb, var(--accent-3) 46%, transparent);
+      border-left: 3px solid color-mix(in srgb, var(--accent-2) 72%, transparent);
       padding: 0.15rem 0 0.15rem 0.9rem;
     }
 
@@ -458,8 +480,8 @@
 
     .mini-link:hover,
     .primary-link:hover {
-      background: var(--accent-soft);
-      border-color: color-mix(in srgb, var(--accent-3) 36%, transparent);
+      background: color-mix(in srgb, var(--accent-4) 16%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 34%, transparent);
       transform: translateY(-1px);
     }
 
@@ -664,9 +686,10 @@
   </style>
   <script>
     (() => {
+      const savedTheme = localStorage.getItem("theme-preference");
       const hour = new Date().getHours();
-      const theme = hour >= 7 && hour < 19 ? "light" : "dark";
-      document.documentElement.dataset.theme = theme;
+      const autoTheme = hour >= 7 && hour < 19 ? "light" : "dark";
+      document.documentElement.dataset.theme = savedTheme || autoTheme;
     })();
   </script>
 </head>
@@ -692,7 +715,10 @@
         <a class="nav-link" href="#cv">CV</a>
         <a class="nav-link" href="#talk">Talk</a>
       </nav>
-      <div class="theme-note" aria-label="Theme mode">Theme auto by local time</div>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="toggle-dot" aria-hidden="true"></span>
+        <span class="theme-toggle-label">Switch theme</span>
+      </button>
     </div>
   </header>
 
@@ -1062,18 +1088,37 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Diyouva Christa Novith</span>
-      <span>Automatically switches between light and dark mode based on the visitor's local time.</span>
+      <span>Researcher and data scientist focused on trade, customs, and technology governance.</span>
     </div>
   </footer>
 
   <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector(".theme-toggle");
+    const themeToggleLabel = document.querySelector(".theme-toggle-label");
     const sections = [...document.querySelectorAll("[data-section]")];
     const navLinks = [...document.querySelectorAll(".nav-link")];
     const navMap = new Map(navLinks.map((link) => [link.getAttribute("href").slice(1), link]));
 
+    const syncThemeToggle = () => {
+      const current = root.dataset.theme === "dark" ? "dark" : "light";
+      themeToggleLabel.textContent = current === "dark" ? "Light mode" : "Dark mode";
+      themeToggle.setAttribute("aria-pressed", String(current === "dark"));
+      themeToggle.setAttribute("title", current === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    };
+
     const setActiveLink = (id) => {
       navLinks.forEach((link) => link.classList.toggle("active", link === navMap.get(id)));
     };
+
+    themeToggle.addEventListener("click", () => {
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      localStorage.setItem("theme-preference", next);
+      syncThemeToggle();
+    });
+
+    syncThemeToggle();
 
     const observer = new IntersectionObserver(
       (entries) => {
