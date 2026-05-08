@@ -611,6 +611,16 @@
       background: var(--surface-strong);
     }
 
+    .news-media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      margin-bottom: 0.25rem;
+      background: color-mix(in srgb, var(--surface-soft) 60%, var(--surface));
+    }
+
     .talk-head {
       display: grid;
       gap: 0.2rem;
@@ -750,7 +760,7 @@
         <a class="nav-link" href="#project" data-i18n="nav_project">Project</a>
         <a class="nav-link" href="#honors" data-i18n="nav_honors">Honors</a>
         <a class="nav-link" href="#cv" data-i18n="nav_cv">CV</a>
-        <a class="nav-link" href="#talk" data-i18n="nav_talk">Talk</a>
+        <a class="nav-link" href="#news" data-i18n="nav_news">News</a>
       </nav>
       <div class="top-controls">
         <div class="lang-toggle" aria-label="Language switcher">
@@ -1144,30 +1154,29 @@
         </div>
       </section>
 
-      <section class="section" id="talk" data-section>
-        <span class="eyebrow" data-i18n="talk_eyebrow">Talk</span>
-        <h2 data-i18n="talk_title">Workshops, teaching, and public-facing activity.</h2>
-        <p class="section-lead" data-i18n="talk_lead">These entries focus on occasions where the work became public-facing: teaching, workshop facilitation, institutional advising, and mentoring. Some overlap with project work because the delivery itself was central to the contribution.</p>
+      <section class="section" id="news" data-section>
+        <span class="eyebrow" data-i18n="news_eyebrow">News</span>
+        <h2 data-i18n="news_title">Recent updates, workshops, and public-facing milestones.</h2>
+        <p class="section-lead" data-i18n="news_lead">This section is drawn directly from the `News/` archive in the repository. It captures recent workshops, speaking engagements, mentoring activities, and institutional milestones documented across your materials.</p>
         <div class="talk-list">
           <article class="talk-item">
+            <img class="news-media" src="News/Lima 2026/1773200241027.jpeg" alt="Workshop session in Lima, Peru">
             <div class="talk-head">
-              <div class="talk-title">WCO-SECO Global Trade Facilitation Programme</div>
-              <div class="talk-meta" data-i18n="talk1_meta">National workshop for SUNAT, Peru</div>
+              <div class="talk-title">Lima, Peru - WCO-SECO Global Trade Facilitation Programme</div>
+              <div class="talk-meta" data-i18n="news1_meta">National workshop for SUNAT, Peru</div>
               <div class="talk-year">March 2026</div>
             </div>
-            <p data-i18n="talk1_body">Co-facilitated a five-day national workshop on customs analytics, risk management, and valuation data use for Peru's customs and tax administration.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
-            </div>
+            <p data-i18n="news1_body">Co-facilitated a five-day workshop in Lima for SUNAT on customs analytics, risk management, customs valuation data, and evidence-based decision-making under the WCO-SECO programme.</p>
           </article>
 
           <article class="talk-item">
+            <img class="news-media" src="News/Vietnam 2025/1767274474335.jpeg" alt="National workshop on data analytics for Viet Nam Customs in Hanoi">
             <div class="talk-head">
-              <div class="talk-title">WCO BACUDA Workshop Contributor</div>
-              <div class="talk-meta">National Workshop on Data Analytics for Viet Nam Customs</div>
+              <div class="talk-title">Hanoi - National Workshop on Data Analytics for Viet Nam Customs</div>
+              <div class="talk-meta" data-i18n="news2_meta">WCO BACUDA Project</div>
               <div class="talk-year">December 2025</div>
             </div>
-            <p data-i18n="talk2_body">Contributed as a data analytics expert in a World Customs Organization workshop focused on AI readiness, data quality, and institutional adoption of analytics.</p>
+            <p data-i18n="news2_body">Contributed as co-facilitator and WCO Data Analytics Expert in Hanoi, supporting workshop design and delivery on analytics, AI readiness, and institutional adoption for Viet Nam Customs.</p>
             <div class="pub-links">
               <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer" data-i18n="workshop_note_link">Workshop note</a>
             </div>
@@ -1175,41 +1184,67 @@
 
           <article class="talk-item">
             <div class="talk-head">
-              <div class="talk-title">Graduate Teaching Assistant</div>
-              <div class="talk-meta" data-i18n="talk3_meta">Economic Analysis, Carnegie Mellon University</div>
-              <div class="talk-year">Spring 2026</div>
+              <div class="talk-title">25th Session of the Integrity Sub-Committee</div>
+              <div class="talk-meta" data-i18n="news3_meta">Presenter representing Indonesia Customs</div>
+              <div class="talk-year">2025</div>
             </div>
-            <p data-i18n="talk3_body">Supported graduate students in an intensive economic analysis course, working closely on core economic concepts, quantitative reasoning, and applied policy problem-solving.</p>
+            <p data-i18n="news3_body">Presented Indonesia Customs' experience embedding integrity principles through data-driven controls, institutional design, and measurable outcomes in a global WCO forum with delegates from nearly 100 members.</p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7434646751673856001/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
+            </div>
           </article>
 
           <article class="talk-item">
+            <img class="news-media" src="News/tableau/1748328210097.jpeg" alt="Data visualization sharing session">
             <div class="talk-head">
-              <div class="talk-title">Kemenkeu Mengajar</div>
-              <div class="talk-meta" data-i18n="talk4_meta">Volunteer teaching initiative</div>
-              <div class="talk-year">October 2023</div>
+              <div class="talk-title">Directorate of Technical Customs - Data Visualization Session</div>
+              <div class="talk-meta" data-i18n="news4_meta">Internal analytics sharing session</div>
+              <div class="talk-year">May 2025</div>
             </div>
-            <p data-i18n="talk4_body">Contributed as a volunteer teacher in a Ministry of Finance education initiative, extending public-facing teaching beyond formal institutional analytics work.</p>
+            <p data-i18n="news4_body">Delivered a three-hour practical session on data exploration, visualization, and actionable insight generation to help strengthen data-informed work inside the organization.</p>
           </article>
 
           <article class="talk-item">
+            <img class="news-media" src="News/Bootcamp kepenulisan/1741599363432.jpeg" alt="Boot Camp Kepenulisan mentoring session">
             <div class="talk-head">
-              <div class="talk-title">Training and Mentoring Through PSKC</div>
-              <div class="talk-meta" data-i18n="talk5_meta">Center for Customs and Excise Studies</div>
-              <div class="talk-year" data-i18n="ongoing">Ongoing</div>
+              <div class="talk-title">Boot Camp Kepenulisan - PSKC</div>
+              <div class="talk-meta" data-i18n="news5_meta">Writing and research mentoring</div>
+              <div class="talk-year">2025</div>
             </div>
-            <p data-i18n="talk5_body">Mentor young researchers and help connect academic work with institutional practice in customs and international trade.</p>
+            <p data-i18n="news5_body">Contributed to a PSKC writing boot camp focused on persuasive structure, clarity, coherence, and mentoring students at PKN STAN as emerging researchers.</p>
+          </article>
+
+          <article class="talk-item">
+            <img class="news-media" src="News/Dewan PSKC/1714361448048.jpeg" alt="PSKC advisory and academic community engagement">
+            <div class="talk-head">
+              <div class="talk-title">PSKC Advisory Board and Academic Community Engagement</div>
+              <div class="talk-meta" data-i18n="news6_meta">Pusat Studi Kepabeanan dan Cukai</div>
+              <div class="talk-year">2024</div>
+            </div>
+            <p data-i18n="news6_body">Joined the PSKC academic community and advisory environment at PKN STAN, strengthening ties between customs practice, writing, and research culture.</p>
             <div class="pub-links">
               <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="pskc_site">PSKC site</a>
             </div>
           </article>
 
           <article class="talk-item">
+            <img class="news-media" src="News/Pacmann/1702111271208.jpeg" alt="Pacmann sharing session">
             <div class="talk-head">
-              <div class="talk-title">Independent Community Teaching</div>
-              <div class="talk-meta" data-i18n="talk6_meta">Oecusse border community initiative</div>
-              <div class="talk-year">2019</div>
+              <div class="talk-title">Pacmann Sharing Session</div>
+              <div class="talk-meta" data-i18n="news7_meta">Independent learning and motivation in data analysis</div>
+              <div class="talk-year">2023</div>
             </div>
-            <p data-i18n="talk6_body">Raised funds and taught English and Indonesian while leading motivational sessions for children in the Indonesia-Timor-Leste border community.</p>
+            <p data-i18n="news7_body">Shared a personal learning journey in data analysis, focusing on motivation, consistency, and how independent learners can build expertise over time.</p>
+          </article>
+
+          <article class="talk-item">
+            <img class="news-media" src="News/SIC/1732291290671.jpeg" alt="STAN Informatics Club data science sharing session">
+            <div class="talk-head">
+              <div class="talk-title">STAN Informatics Club - Data Science Sharing</div>
+              <div class="talk-meta" data-i18n="news8_meta">Student knowledge-sharing session</div>
+              <div class="talk-year">2024</div>
+            </div>
+            <p data-i18n="news8_body">Shared practical steps for learning data science, emphasizing that good decision-making requires not only access to data but the knowledge to interpret it responsibly.</p>
           </article>
         </div>
       </section>
