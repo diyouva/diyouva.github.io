@@ -551,6 +551,145 @@
       color: var(--text);
     }
 
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface-soft) 74%, transparent);
+      color: var(--muted);
+      padding: 0.5rem 0.82rem;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: color-mix(in srgb, var(--accent-4) 16%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 32%, transparent);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-card[hidden] {
+      display: none;
+    }
+
+    .project-cover {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent-3) 30%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent));
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+
+    .project-card:hover .project-cover img {
+      transform: scale(1.03);
+    }
+
+    .project-app {
+      height: 100%;
+      display: grid;
+      align-content: space-between;
+      padding: 1rem;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.12)),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent-3) 24%, transparent), color-mix(in srgb, var(--accent-2) 12%, transparent), color-mix(in srgb, var(--accent-4) 18%, transparent));
+    }
+
+    html[data-theme="dark"] .project-app {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.22)),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent-3) 20%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent), color-mix(in srgb, var(--accent-4) 16%, transparent));
+    }
+
+    .browser-bar {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .browser-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--text) 18%, transparent);
+    }
+
+    .project-app-url {
+      font-family: "DM Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      word-break: break-all;
+    }
+
+    .project-app-title {
+      margin-top: 1.3rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      max-width: 13ch;
+    }
+
+    .project-body {
+      display: grid;
+      gap: 0.85rem;
+      padding: 1.05rem 1.05rem 1.15rem;
+    }
+
+    .project-body h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .project-kind {
+      color: var(--accent-2);
+      font-family: "DM Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
     .cv-shell {
       display: grid;
       gap: 1.4rem;
@@ -987,124 +1126,166 @@
 
       <section class="section" id="project" data-section>
         <span class="eyebrow" data-i18n="project_eyebrow">Project</span>
-        <h2 data-i18n="project_title">Projects, dashboards, and analytic products.</h2>
-        <p class="section-lead" data-i18n="project_lead">These projects are drawn from your public record and cover code, dashboards, applied analytics, and institution-facing programs. Where public artifacts live on GitHub or Tableau, the cards point there directly; where the work is documented mainly through LinkedIn, the card uses that as the public reference.</p>
+        <h2 data-i18n="project_title">Selected applications and dashboards.</h2>
+        <p class="section-lead" data-i18n="project_lead">A curated project shelf with live applications, analytical tools, and interactive dashboards. The structure is more portfolio-like here on purpose: visual first, then method and policy relevance.</p>
+        <div class="project-filters" aria-label="Project filters">
+          <button class="filter-btn active" type="button" data-project-filter="all" data-i18n="filter_all">All</button>
+          <button class="filter-btn" type="button" data-project-filter="application" data-i18n="filter_apps">Applications</button>
+          <button class="filter-btn" type="button" data-project-filter="dashboard" data-i18n="filter_dashboards">Dashboards</button>
+        </div>
         <div class="project-grid">
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>StockMatch: Gamified AI Stock Recommender</h3>
-                <div class="project-type" data-i18n="proj1_type">Applied data science project</div>
+          <article class="card project-card" data-project-kind="application">
+            <div class="project-cover">
+              <div class="project-app">
+                <div>
+                  <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                  <div class="project-app-url">diyouva.github.io/LLM-assisted-Free-Trade-Agreements</div>
+                </div>
+                <div class="project-app-title">LLM-assisted Free Trade Agreements</div>
               </div>
-              <a class="primary-link" href="https://github.com/diyouva" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>GitHub</a>
             </div>
-            <p data-i18n="proj1_body">Built during HackCMU 2025, StockMatch uses swipe behavior, financial data, and AI-generated explanations to personalize stock discovery over time.</p>
-            <div class="project-panel" data-i18n="proj1_panel"><strong>Highlights:</strong> swipe-based behavioral data capture, plain-English financial interpretation, and portfolio construction using volatility, sector exposure, and diversification constraints.</div>
-            <div class="tag-row"><span class="tag">Machine learning</span><span class="tag">LLM</span><span class="tag">Recommendation systems</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj1_type">Application</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://diyouva.github.io/LLM-assisted-Free-Trade-Agreements/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="open_project">Open project</span></a>
+                </div>
+              </div>
+              <h3>LLM-assisted Free Trade Agreements</h3>
+              <p data-i18n="proj1_body">An interactive policy tool that pairs trade agreement materials with LLM-assisted navigation, helping users move faster across treaty content, implementation questions, and decision-relevant references.</p>
+              <div class="tag-row"><span class="tag">LLM</span><span class="tag">Trade policy</span><span class="tag">Decision support</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>Customs Data Culture 2023</h3>
-                <div class="project-type" data-i18n="proj2_type">Institutional transformation initiative</div>
+          <article class="card project-card" data-project-kind="application">
+            <div class="project-cover">
+              <div class="project-app">
+                <div>
+                  <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                  <div class="project-app-url">diyouva-h1-b-analysis.share.connect.posit.cloud</div>
+                </div>
+                <div class="project-app-title">H-1B Pathway Analysis</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="context_link">Context</span></a>
             </div>
-            <p data-i18n="proj2_body">Initiated and managed a nationwide customs analytics adoption effort across more than 30 units, building a shared data culture for policy execution and reducing manual reporting burdens.</p>
-            <div class="project-panel" data-i18n="proj2_panel"><strong>Highlights:</strong> analytics rollout across multiple units, training for BI and data analysts, and recognized institutional impact on day-to-day practice.</div>
-            <div class="tag-row"><span class="tag">Change management</span><span class="tag">Data culture</span><span class="tag">Leadership</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj2_type">Application</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://diyouva-h1-b-analysis.share.connect.posit.cloud/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="open_project">Open project</span></a>
+                </div>
+              </div>
+              <h3>Post-Study Work Pathways</h3>
+              <p data-i18n="proj2_body">A policy analysis app for exploring H-1B, OPT, and CPT responses under cost and incentive shocks, designed to make scenario-based labor and immigration analysis easier to inspect.</p>
+              <div class="tag-row"><span class="tag">Policy simulation</span><span class="tag">Labor economics</span><span class="tag">Shiny</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>HS Code Prediction Model</h3>
-                <div class="project-type" data-i18n="proj3_type">Customs classification model</div>
+          <article class="card project-card" data-project-kind="application">
+            <div class="project-cover">
+              <div class="project-app">
+                <div>
+                  <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+                  <div class="project-app-url">diyouva-trade-circumvention-analysis.share.connect.posit.cloud</div>
+                </div>
+                <div class="project-app-title">Trade Circumvention Analysis</div>
               </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
             </div>
-            <p data-i18n="proj3_body">Designed a multi-class text classification model using TF-IDF and LinearSVC to predict Harmonized System codes from commodity descriptions.</p>
-            <div class="project-panel" data-i18n="proj3_panel"><strong>Highlights:</strong> administrative text classification, customs automation, and a direct bridge between model performance and classification judgment in trade operations.</div>
-            <div class="tag-row"><span class="tag">NLP</span><span class="tag">TF-IDF</span><span class="tag">LinearSVC</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj3_type">Application</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://diyouva-trade-circumvention-analysis.share.connect.posit.cloud/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="open_project">Open project</span></a>
+                </div>
+              </div>
+              <h3>Trade Circumvention Analysis</h3>
+              <p data-i18n="proj3_body">A live analytical environment for investigating trade mirroring patterns, possible rerouting behavior, and circumvention risk through comparative trade statistics.</p>
+              <div class="tag-row"><span class="tag">Trade statistics</span><span class="tag">Risk analysis</span><span class="tag">Posit</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>A Dynamic Trade Circumvention Dashboard</h3>
-                <div class="project-type" data-i18n="proj4_type">Trade analytics dashboard</div>
-              </div>
-              <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg>Tableau</a>
+          <article class="card project-card" data-project-kind="dashboard">
+            <div class="project-cover">
+              <img src="https://public.tableau.com/static/images/CB/CBC16-WCOExpertAcquistionMobilizationPolicy/Overview/1.png" alt="WCO expert acquisition mobilization policy dashboard preview">
             </div>
-            <p data-i18n="proj4_body">Built a dashboard to detect possible trade circumvention by combining Share-Shift and Trade Intensity metrics across international trade data.</p>
-            <div class="project-panel" data-i18n="proj4_panel"><strong>Highlights:</strong> anomaly detection for transshipment patterns, dashboard-based policy interpretation, and trade-route diagnostics for tariff evasion risk.</div>
-            <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Trade data</span><span class="tag">Risk analytics</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj4_type">Dashboard</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/viz/CBC16-WCOExpertAcquistionMobilizationPolicy/Overview" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg><span data-i18n="open_dashboard">Open dashboard</span></a>
+                </div>
+              </div>
+              <h3>WCO Expert Acquisition and Mobilization Policy</h3>
+              <p data-i18n="proj4_body">An interactive Tableau view on expert acquisition and mobilization policy, structured to surface allocation patterns, program design questions, and implementation priorities.</p>
+              <div class="tag-row"><span class="tag">Tableau</span><span class="tag">Policy design</span><span class="tag">WCO</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>Free Trade Agreement Impact Dashboard</h3>
-                <div class="project-type" data-i18n="proj5_type">Trade policy dashboard</div>
-              </div>
-              <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/vizzes" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg>Tableau</a>
+          <article class="card project-card" data-project-kind="dashboard">
+            <div class="project-cover">
+              <img src="https://public.tableau.com/static/images/Po/PotensiUsahaMikroKecilMenengahProvinsiJawaBarat/KondisiTerkini/1.png" alt="West Java MSME potential dashboard preview">
             </div>
-            <p data-i18n="proj5_body">Built an analytical dashboard on Free Trade Agreement impacts, trade balance shifts, and provincial export potential to support evidence-based trade policy interpretation.</p>
-            <div class="project-panel" data-i18n="proj5_panel"><strong>Highlights:</strong> trade balance monitoring, province-level export opportunity mapping, and visual support for comparative policy analysis.</div>
-            <div class="tag-row"><span class="tag">Tableau</span><span class="tag">FTA</span><span class="tag">Export mapping</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj5_type">Dashboard</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/viz/PotensiUsahaMikroKecilMenengahProvinsiJawaBarat/KondisiTerkini" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg><span data-i18n="open_dashboard">Open dashboard</span></a>
+                </div>
+              </div>
+              <h3>West Java MSME Potential</h3>
+              <p data-i18n="proj5_body">A regional economic dashboard focused on current conditions and potential patterns for micro, small, and medium enterprises across West Java.</p>
+              <div class="tag-row"><span class="tag">Regional economy</span><span class="tag">MSME</span><span class="tag">Tableau</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>Chicago Crash Risk Intelligence Platform</h3>
-                <div class="project-type" data-i18n="proj6_type">Urban policy analytics</div>
-              </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
+          <article class="card project-card" data-project-kind="dashboard">
+            <div class="project-cover">
+              <img src="https://public.tableau.com/static/images/Da/Dashboard-BarangKiriman/Overview/1.png" alt="Shipment goods dashboard preview">
             </div>
-            <p data-i18n="proj6_body">Built a machine learning pipeline on 800K+ Chicago crash records to identify severe-crash risk and spatial hotspots for proactive policy intervention.</p>
-            <div class="project-panel" data-i18n="proj6_panel"><strong>Highlights:</strong> feature engineering on spatiotemporal data, classification for severe crash prediction, and DBSCAN hotspot detection.</div>
-            <div class="tag-row"><span class="tag">Policy analytics</span><span class="tag">Clustering</span><span class="tag">Risk prediction</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj6_type">Dashboard</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/viz/Dashboard-BarangKiriman/Overview" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg><span data-i18n="open_dashboard">Open dashboard</span></a>
+                </div>
+              </div>
+              <h3>Shipment Goods Dashboard</h3>
+              <p data-i18n="proj6_body">A customs-facing dashboard for monitoring shipment goods activity, supporting quicker interpretation of operational movement and exception patterns.</p>
+              <div class="tag-row"><span class="tag">Customs</span><span class="tag">Operations</span><span class="tag">Monitoring</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>Modeling Post-Study Work Pathways</h3>
-                <div class="project-type" data-i18n="proj7_type">Interactive policy simulator</div>
-              </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
+          <article class="card project-card" data-project-kind="dashboard">
+            <div class="project-cover">
+              <img src="https://public.tableau.com/static/images/Tr/TradeStatisticMirroringAnalysis/GeneralInformation/1.png" alt="Trade statistic mirroring analysis dashboard preview">
             </div>
-            <p data-i18n="proj7_body">Developed a simulator for H-1B, OPT, and CPT responses under a large fee shock, using elasticity assumptions and administrative data to trace cross-program effects.</p>
-            <div class="project-panel" data-i18n="proj7_panel"><strong>Highlights:</strong> policy scenario modeling, labor-market response estimation, and regulatory spillover analysis across linked visa pathways.</div>
-            <div class="tag-row"><span class="tag">Economics</span><span class="tag">Policy simulation</span><span class="tag">Immigration</span></div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj7_type">Dashboard</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/viz/TradeStatisticMirroringAnalysis/GeneralInformation" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg><span data-i18n="open_dashboard">Open dashboard</span></a>
+                </div>
+              </div>
+              <h3>Trade Statistic Mirroring Analysis</h3>
+              <p data-i18n="proj7_body">A multi-view dashboard for examining trade mirroring gaps, comparative reporting asymmetries, and signals relevant to circumvention analysis.</p>
+              <div class="tag-row"><span class="tag">Mirroring analysis</span><span class="tag">Trade flows</span><span class="tag">Tableau</span></div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>WCO-SECO Global Trade Facilitation Programme</h3>
-                <div class="project-type" data-i18n="proj8_type">International customs capacity building</div>
-              </div>
-              <a class="primary-link" href="https://www.linkedin.com/in/diyouva/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg><span data-i18n="project_note_link">Project note</span></a>
+          <article class="card project-card" data-project-kind="dashboard">
+            <div class="project-cover">
+              <img src="https://public.tableau.com/static/images/Pe/PetaResikoIndonesia/InsidenIssue/1.png" alt="Indonesia risk map dashboard preview">
             </div>
-            <p data-i18n="proj8_body">Co-facilitated a five-day analytics workshop for SUNAT in Peru focused on risk management, customs valuation data, and embedding analytics into operational decision-making.</p>
-            <div class="project-panel" data-i18n="proj8_panel"><strong>Highlights:</strong> institutional adoption of analytics, customs valuation workflows, and cross-country adaptation of shared analytical frameworks.</div>
-            <div class="tag-row"><span class="tag">Workshop design</span><span class="tag">Capacity building</span><span class="tag">Peru</span></div>
-          </article>
-
-          <article class="card">
-            <div class="project-top">
-              <div>
-                <h3>National Workshop on Data Analytics for Viet Nam Customs</h3>
-                <div class="project-type" data-i18n="proj9_type">Applied training program</div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind" data-i18n="proj8_type">Dashboard</span>
+                <div class="project-actions">
+                  <a class="primary-link" href="https://public.tableau.com/app/profile/diyouva/viz/PetaResikoIndonesia/InsidenIssue" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-tableau"></use></svg><span data-i18n="open_dashboard">Open dashboard</span></a>
+                </div>
               </div>
-              <a class="primary-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg><span data-i18n="workshop_note_link">Workshop note</span></a>
+              <h3>Indonesia Risk Map</h3>
+              <p data-i18n="proj8_body">A spatial dashboard on incidents and issues in Indonesia, designed to make geographic risk patterns easier to scan and compare.</p>
+              <div class="tag-row"><span class="tag">Risk map</span><span class="tag">Spatial analysis</span><span class="tag">Policy view</span></div>
             </div>
-            <p data-i18n="proj9_body">Co-facilitated a national workshop in Hanoi covering Python-based preprocessing, fraud detection, HS classification, and institutional readiness for analytics adoption.</p>
-            <div class="project-panel" data-i18n="proj9_panel"><strong>Highlights:</strong> technical training plus governance-oriented implementation, with emphasis on how common tools are localized inside different customs systems.</div>
-            <div class="tag-row"><span class="tag">Python</span><span class="tag">Fraud detection</span><span class="tag">Viet Nam Customs</span></div>
           </article>
         </div>
       </section>
@@ -1397,6 +1578,8 @@
     const themeToggleLabel = document.querySelector(".theme-toggle-label");
     const langButtons = [...document.querySelectorAll(".lang-button")];
     const galleries = [...document.querySelectorAll("[data-gallery]")];
+    const projectFilterButtons = [...document.querySelectorAll("[data-project-filter]")];
+    const projectCards = [...document.querySelectorAll(".project-card")];
     const sections = [...document.querySelectorAll("[data-section]")];
     const navLinks = [...document.querySelectorAll(".nav-link")];
     const navMap = new Map(navLinks.map((link) => [link.getAttribute("href").slice(1), link]));
@@ -1456,38 +1639,30 @@
       wp3_meta: { fr: "Recherche en cours" },
       wp3_note: { fr: "Étudie comment les normes techniques de classification fonctionnent comme infrastructure de gouvernance dans le commerce international." },
       project_eyebrow: { fr: "Projets" },
-      project_title: { fr: "Projets, tableaux de bord et produits analytiques." },
-      project_lead: { fr: "Ces projets sont tirés de votre dossier public et couvrent le code, les tableaux de bord, l'analytique appliquée et les programmes à destination des institutions. Lorsque les artefacts publics sont sur GitHub ou Tableau, les cartes y renvoient directement ; lorsque le travail est surtout documenté sur LinkedIn, la carte utilise ce profil comme référence publique." },
-      proj1_type: { fr: "Projet appliqué de data science" },
-      proj1_body: { fr: "Réalisé pendant HackCMU 2025, StockMatch utilise le comportement de balayage, les données financières et des explications générées par IA pour personnaliser la découverte d'actions au fil du temps." },
-      proj1_panel: { fr: "<strong>Points saillants :</strong> capture comportementale par balayage, interprétation financière en langage clair et construction de portefeuille selon la volatilité, l'exposition sectorielle et la diversification." },
-      proj2_type: { fr: "Initiative de transformation institutionnelle" },
-      context_link: { fr: "Contexte" },
-      proj2_body: { fr: "J'ai lancé et piloté un effort national d'adoption de l'analytique douanière dans plus de 30 unités, en développant une culture commune des données pour l'exécution des politiques et en réduisant la charge de reporting manuel." },
-      proj2_panel: { fr: "<strong>Points saillants :</strong> déploiement analytique dans de multiples unités, formation des utilisateurs BI et des analystes de données, et impact institutionnel reconnu sur les pratiques quotidiennes." },
-      proj3_type: { fr: "Modèle de classification douanière" },
-      project_note_link: { fr: "Note de projet" },
-      proj3_body: { fr: "Conception d'un modèle de classification multiclasses utilisant TF-IDF et LinearSVC pour prédire les codes du Système harmonisé à partir des descriptions de marchandises." },
-      proj3_panel: { fr: "<strong>Points saillants :</strong> classification de textes administratifs, automatisation douanière et lien direct entre performance du modèle et jugement de classification dans les opérations commerciales." },
-      proj4_type: { fr: "Tableau de bord d'analytique commerciale" },
-      proj4_body: { fr: "Création d'un tableau de bord pour détecter d'éventuels contournements commerciaux en combinant les métriques Share-Shift et Trade Intensity sur des données de commerce international." },
-      proj4_panel: { fr: "<strong>Points saillants :</strong> détection d'anomalies de transbordement, interprétation des politiques via tableau de bord et diagnostic des routes commerciales à risque d'évasion tarifaire." },
-      proj5_type: { fr: "Tableau de bord de politique commerciale" },
-      proj5_body: { fr: "Création d'un tableau de bord analytique sur les effets des accords de libre-échange, les variations de balance commerciale et le potentiel d'exportation provincial pour soutenir une interprétation fondée sur les données." },
-      proj5_panel: { fr: "<strong>Points saillants :</strong> suivi de la balance commerciale, cartographie des opportunités d'exportation par province et appui visuel à l'analyse comparative des politiques." },
-      proj6_type: { fr: "Analytique de politique urbaine" },
-      proj6_body: { fr: "Développement d'un pipeline de machine learning sur plus de 800 000 données d'accidents à Chicago afin d'identifier les risques de gravité et les points chauds spatiaux pour une intervention proactive." },
-      proj6_panel: { fr: "<strong>Points saillants :</strong> ingénierie de variables spatio-temporelles, classification pour prédire les accidents graves et détection de points chauds par DBSCAN." },
-      proj7_type: { fr: "Simulateur interactif de politiques publiques" },
-      proj7_body: { fr: "Développement d'un simulateur des réponses H-1B, OPT et CPT à un choc tarifaire majeur, en utilisant des hypothèses d'élasticité et des données administratives pour suivre les effets croisés entre dispositifs." },
-      proj7_panel: { fr: "<strong>Points saillants :</strong> modélisation de scénarios politiques, estimation des réponses du marché du travail et analyse des effets réglementaires entre voies migratoires liées." },
-      proj8_type: { fr: "Renforcement international des capacités douanières" },
-      proj8_body: { fr: "Coanimation d'un atelier analytique de cinq jours pour la SUNAT au Pérou, centré sur la gestion du risque, les données de valorisation douanière et l'intégration de l'analytique dans la décision opérationnelle." },
-      proj8_panel: { fr: "<strong>Points saillants :</strong> adoption institutionnelle de l'analytique, flux de travail de valorisation douanière et adaptation transnationale de cadres analytiques communs." },
-      proj9_type: { fr: "Programme de formation appliquée" },
+      project_title: { fr: "Applications et tableaux de bord sélectionnés." },
+      project_lead: { fr: "Une sélection resserrée d'applications en ligne, d'outils analytiques et de tableaux de bord interactifs. La section est volontairement plus portfolio ici : d'abord le visuel, puis la méthode et l'intérêt pour l'action publique." },
+      filter_all: { fr: "Tous" },
+      filter_apps: { fr: "Applications" },
+      filter_dashboards: { fr: "Tableaux de bord" },
+      open_project: { fr: "Ouvrir le projet" },
+      open_dashboard: { fr: "Ouvrir le tableau de bord" },
+      proj1_type: { fr: "Application" },
+      proj1_body: { fr: "Un outil interactif de politique commerciale qui associe les matériaux des accords commerciaux à une navigation assistée par LLM pour accélérer l'accès au contenu des traités, aux questions de mise en oeuvre et aux références utiles à la décision." },
+      proj2_type: { fr: "Application" },
+      proj2_body: { fr: "Une application d'analyse publique pour explorer les réponses H-1B, OPT et CPT sous l'effet de chocs de coût et d'incitation, conçue pour rendre plus lisible l'analyse par scénarios du travail et de l'immigration." },
+      proj3_type: { fr: "Application" },
+      proj3_body: { fr: "Un environnement analytique en ligne pour examiner les effets miroir du commerce, les comportements possibles de reroutage et les signaux de contournement à partir de statistiques commerciales comparées." },
+      proj4_type: { fr: "Tableau de bord" },
+      proj4_body: { fr: "Une vue interactive sur la politique d'acquisition et de mobilisation des experts, structurée pour faire ressortir les schémas d'allocation, les questions de design de programme et les priorités de mise en oeuvre." },
+      proj5_type: { fr: "Tableau de bord" },
+      proj5_body: { fr: "Un tableau de bord économique régional centré sur la situation actuelle et les potentiels des micro, petites et moyennes entreprises à travers la province de Java occidental." },
+      proj6_type: { fr: "Tableau de bord" },
+      proj6_body: { fr: "Un tableau de bord orienté douanes pour suivre les flux de biens d'expédition et faciliter l'interprétation rapide des mouvements opérationnels et des schémas d'exception." },
+      proj7_type: { fr: "Tableau de bord" },
+      proj7_body: { fr: "Un tableau de bord multi-vues consacré aux écarts de statistiques miroirs du commerce, aux asymétries de déclaration et aux signaux utiles à l'analyse du contournement." },
+      proj8_type: { fr: "Tableau de bord" },
+      proj8_body: { fr: "Un tableau de bord spatial sur les incidents et enjeux en Indonésie, conçu pour rendre les motifs géographiques de risque plus faciles à parcourir et à comparer." },
       workshop_note_link: { fr: "Note d'atelier" },
-      proj9_body: { fr: "Coanimation d'un atelier national à Hanoï sur le prétraitement Python, la détection de fraude, la classification SH et la préparation institutionnelle à l'adoption de l'analytique." },
-      proj9_panel: { fr: "<strong>Points saillants :</strong> formation technique et mise en oeuvre orientée gouvernance, avec attention portée à la localisation des outils communs dans différents systèmes douaniers." },
       honors_eyebrow: { fr: "Distinctions" },
       honors_title: { fr: "Prix, distinctions et reconnaissances compétitives." },
       honors_lead: { fr: "Cette section s'appuie sur les distinctions et récompenses répertoriées sur votre profil LinkedIn public. Elle rassemble des reconnaissances obtenues en analytique douanière, en recherche, en bourses d'études et en travail appliqué orienté politiques publiques." },
@@ -1605,7 +1780,22 @@
       buttons[1].addEventListener("click", () => strip.scrollBy({ left: step * 2, behavior: "smooth" }));
     });
 
+    const applyProjectFilter = (kind) => {
+      projectFilterButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.projectFilter === kind);
+      });
+      projectCards.forEach((card) => {
+        const match = kind === "all" || card.dataset.projectKind === kind;
+        card.hidden = !match;
+      });
+    };
+
+    projectFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => applyProjectFilter(button.dataset.projectFilter));
+    });
+
     applyLanguage(localStorage.getItem("lang-preference") || "en");
+    applyProjectFilter("all");
 
     const observer = new IntersectionObserver(
       (entries) => {
