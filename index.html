@@ -761,6 +761,10 @@
       gap: 0.55rem;
       align-items: center;
       min-width: 0;
+      padding: 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--surface-soft) 58%, var(--surface));
     }
 
     .gallery-btn {
@@ -786,7 +790,7 @@
     .news-thumbs {
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: 112px;
+      grid-auto-columns: 124px;
       gap: 0.5rem;
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -799,7 +803,7 @@
     }
 
     .news-thumb {
-      width: 112px;
+      width: 124px;
       aspect-ratio: 1 / 1;
       border-radius: 14px;
       overflow: hidden;
@@ -888,18 +892,30 @@
       }
 
       .talk-item.news-item {
-        grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-        gap: 1rem;
+        grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+        gap: 1.15rem;
+        align-items: stretch;
       }
 
       .talk-item.news-item > .news-gallery {
         grid-column: 2;
         grid-row: 1 / span 3;
-        align-self: center;
+        align-self: stretch;
+        align-content: center;
+        min-height: 100%;
       }
 
       .talk-item.news-item > .news-copy {
         grid-column: 1;
+        padding-right: 0.2rem;
+      }
+
+      .talk-item.news-item .news-thumbs {
+        grid-auto-columns: 144px;
+      }
+
+      .talk-item.news-item .news-thumb {
+        width: 144px;
       }
     }
 
@@ -1420,7 +1436,7 @@
         <h2 data-i18n="news_title">Recent updates, workshops, and public-facing milestones.</h2>
         <p class="section-lead" data-i18n="news_lead">This section is drawn directly from the `News/` archive in the repository. It captures recent workshops, speaking engagements, mentoring activities, and institutional milestones documented across your materials.</p>
         <div class="talk-list">
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1434,18 +1450,20 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">Peru Workshop on Customs Analytics with SUNAT</div>
-              <div class="talk-meta" data-i18n="news1_meta">National workshop for SUNAT, Peru</div>
-              <div class="talk-year">March 2026</div>
-            </div>
-            <p data-i18n="news1_body">Co-facilitated a five-day workshop in Lima for SUNAT on customs analytics, risk management, customs valuation data, and evidence-based decision-making under the WCO-SECO programme.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://www.wcoomd.org/en/topics/capacity-building/activities-and-programmes/cooperation-programmes/seco_wco-gtfp.aspx" target="_blank" rel="noreferrer">WCO-SECO Programme</a>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Peru Workshop on Customs Analytics with SUNAT</div>
+                <div class="talk-meta" data-i18n="news1_meta">National workshop for SUNAT, Peru</div>
+                <div class="talk-year">March 2026</div>
+              </div>
+              <p data-i18n="news1_body">Co-facilitated a five-day workshop in Lima for SUNAT on customs analytics, risk management, customs valuation data, and evidence-based decision-making under the WCO-SECO programme.</p>
+              <div class="pub-links">
+                <a class="mini-link" href="https://www.wcoomd.org/en/topics/capacity-building/activities-and-programmes/cooperation-programmes/seco_wco-gtfp.aspx" target="_blank" rel="noreferrer">WCO-SECO Programme</a>
+              </div>
             </div>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1456,31 +1474,35 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">National Data Analytics Workshop for Viet Nam Customs</div>
-              <div class="talk-meta" data-i18n="news2_meta">WCO BACUDA Project</div>
-              <div class="talk-year">December 2025</div>
-            </div>
-            <p data-i18n="news2_body">Contributed as co-facilitator and WCO Data Analytics Expert in Hanoi, supporting a workshop that connected hands-on training in Python, fraud analytics, and HS classification with longer-term institutional readiness.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer" data-i18n="workshop_note_link">Workshop note</a>
-              <a class="mini-link" href="https://thuehaiquan.tapchikinhtetaichinh.vn/wco-to-chuc-hoi-nghi-tap-huan-ve-phan-tich-du-lieu-cho-hai-quan-viet-nam-128245.html" target="_blank" rel="noreferrer">Customs News</a>
-            </div>
-          </article>
-
-          <article class="talk-item">
-            <div class="talk-head">
-              <div class="talk-title">Presenting Indonesia's Integrity-by-Design Approach at the WCO ISC</div>
-              <div class="talk-meta" data-i18n="news3_meta">Presenter representing Indonesia Customs</div>
-              <div class="talk-year">2025</div>
-            </div>
-            <p data-i18n="news3_body">Presented Indonesia Customs' approach to embedding integrity through data-driven controls, institutional design, and measurable operational outcomes in a global forum with delegates from nearly 100 WCO members.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7434646751673856001/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">National Data Analytics Workshop for Viet Nam Customs</div>
+                <div class="talk-meta" data-i18n="news2_meta">WCO BACUDA Project</div>
+                <div class="talk-year">December 2025</div>
+              </div>
+              <p data-i18n="news2_body">Contributed as co-facilitator and WCO Data Analytics Expert in Hanoi, supporting a workshop that connected hands-on training in Python, fraud analytics, and HS classification with longer-term institutional readiness.</p>
+              <div class="pub-links">
+                <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer" data-i18n="workshop_note_link">Workshop note</a>
+                <a class="mini-link" href="https://thuehaiquan.tapchikinhtetaichinh.vn/wco-to-chuc-hoi-nghi-tap-huan-ve-phan-tich-du-lieu-cho-hai-quan-viet-nam-128245.html" target="_blank" rel="noreferrer">Customs News</a>
+              </div>
             </div>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Presenting Indonesia's Integrity-by-Design Approach at the WCO ISC</div>
+                <div class="talk-meta" data-i18n="news3_meta">Presenter representing Indonesia Customs</div>
+                <div class="talk-year">2025</div>
+              </div>
+              <p data-i18n="news3_body">Presented Indonesia Customs' approach to embedding integrity through data-driven controls, institutional design, and measurable operational outcomes in a global forum with delegates from nearly 100 WCO members.</p>
+              <div class="pub-links">
+                <a class="mini-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7434646751673856001/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1492,15 +1514,17 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">Practical Data Visualization Session for Technical Customs</div>
-              <div class="talk-meta" data-i18n="news4_meta">Internal analytics sharing session</div>
-              <div class="talk-year">May 2025</div>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Practical Data Visualization Session for Technical Customs</div>
+                <div class="talk-meta" data-i18n="news4_meta">Internal analytics sharing session</div>
+                <div class="talk-year">May 2025</div>
+              </div>
+              <p data-i18n="news4_body">Delivered a practical session on data exploration, visualization, and decision-oriented storytelling, aimed at helping staff move from spreadsheet-heavy workflows toward clearer and more actionable use of evidence.</p>
             </div>
-            <p data-i18n="news4_body">Delivered a practical session on data exploration, visualization, and decision-oriented storytelling, aimed at helping staff move from spreadsheet-heavy workflows toward clearer and more actionable use of evidence.</p>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1510,15 +1534,17 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">Boot Camp Kepenulisan: Mentoring Emerging Researchers</div>
-              <div class="talk-meta" data-i18n="news5_meta">Writing and research mentoring</div>
-              <div class="talk-year">2025</div>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Boot Camp Kepenulisan: Mentoring Emerging Researchers</div>
+                <div class="talk-meta" data-i18n="news5_meta">Writing and research mentoring</div>
+                <div class="talk-year">2025</div>
+              </div>
+              <p data-i18n="news5_body">Contributed to a PSKC writing boot camp on persuasive structure, clarity, coherence, and research storytelling while mentoring PKN STAN students as emerging researchers.</p>
             </div>
-            <p data-i18n="news5_body">Contributed to a PSKC writing boot camp on persuasive structure, clarity, coherence, and research storytelling while mentoring PKN STAN students as emerging researchers.</p>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1528,18 +1554,20 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">Joining the PSKC Advisory Community at PKN STAN</div>
-              <div class="talk-meta" data-i18n="news6_meta">Pusat Studi Kepabeanan dan Cukai</div>
-              <div class="talk-year">2024</div>
-            </div>
-            <p data-i18n="news6_body">Joined the academic and advisory community around PSKC at PKN STAN, reinforcing ties between customs practice, research, and scholarly writing.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="pskc_site">PSKC site</a>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Joining the PSKC Advisory Community at PKN STAN</div>
+                <div class="talk-meta" data-i18n="news6_meta">Pusat Studi Kepabeanan dan Cukai</div>
+                <div class="talk-year">2024</div>
+              </div>
+              <p data-i18n="news6_body">Joined the academic and advisory community around PSKC at PKN STAN, reinforcing ties between customs practice, research, and scholarly writing.</p>
+              <div class="pub-links">
+                <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="pskc_site">PSKC site</a>
+              </div>
             </div>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1547,15 +1575,17 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">Pacmann Session on Learning Data Analysis Independently</div>
-              <div class="talk-meta" data-i18n="news7_meta">Independent learning and motivation in data analysis</div>
-              <div class="talk-year">2023</div>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">Pacmann Session on Learning Data Analysis Independently</div>
+                <div class="talk-meta" data-i18n="news7_meta">Independent learning and motivation in data analysis</div>
+                <div class="talk-year">2023</div>
+              </div>
+              <p data-i18n="news7_body">Shared a personal learning journey in data analysis, focusing on motivation, consistency, and the discipline required to build expertise as an independent learner.</p>
             </div>
-            <p data-i18n="news7_body">Shared a personal learning journey in data analysis, focusing on motivation, consistency, and the discipline required to build expertise as an independent learner.</p>
           </article>
 
-          <article class="talk-item">
+          <article class="talk-item news-item">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1566,14 +1596,16 @@
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
-            <div class="talk-head">
-              <div class="talk-title">STAN Informatics Club Session on Learning Data Science</div>
-              <div class="talk-meta" data-i18n="news8_meta">Student knowledge-sharing session</div>
-              <div class="talk-year">2024</div>
-            </div>
-            <p data-i18n="news8_body">Shared practical steps for learning data science, emphasizing that responsible decision-making requires not just access to data, but the knowledge to read and use it well.</p>
-            <div class="pub-links">
-              <a class="mini-link" href="https://stan-ic.vercel.app/" target="_blank" rel="noreferrer">STAN Informatics Club</a>
+            <div class="news-copy">
+              <div class="talk-head">
+                <div class="talk-title">STAN Informatics Club Session on Learning Data Science</div>
+                <div class="talk-meta" data-i18n="news8_meta">Student knowledge-sharing session</div>
+                <div class="talk-year">2024</div>
+              </div>
+              <p data-i18n="news8_body">Shared practical steps for learning data science, emphasizing that responsible decision-making requires not just access to data, but the knowledge to read and use it well.</p>
+              <div class="pub-links">
+                <a class="mini-link" href="https://stan-ic.vercel.app/" target="_blank" rel="noreferrer">STAN Informatics Club</a>
+              </div>
             </div>
           </article>
         </div>
