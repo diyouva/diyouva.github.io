@@ -621,6 +621,70 @@
       background: color-mix(in srgb, var(--surface-soft) 60%, var(--surface));
     }
 
+    .news-gallery {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.55rem;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .gallery-btn {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface-soft) 46%, var(--surface));
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .gallery-btn:hover {
+      background: color-mix(in srgb, var(--accent-4) 16%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 34%, transparent);
+      transform: translateY(-1px);
+    }
+
+    .news-thumbs {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 92px;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 0.2rem;
+    }
+
+    .news-thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .news-thumb {
+      width: 92px;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface-soft) 46%, var(--surface));
+      flex: 0 0 auto;
+    }
+
+    .news-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 180ms ease;
+    }
+
+    .news-thumb:hover img {
+      transform: scale(1.04);
+    }
+
     .talk-head {
       display: grid;
       gap: 0.2rem;
@@ -1160,91 +1224,186 @@
         <p class="section-lead" data-i18n="news_lead">This section is drawn directly from the `News/` archive in the repository. It captures recent workshops, speaking engagements, mentoring activities, and institutional milestones documented across your materials.</p>
         <div class="talk-list">
           <article class="talk-item">
-            <img class="news-media" src="News/Lima 2026/1773200241027.jpeg" alt="Workshop session in Lima, Peru">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/Lima 2026/1773200241027.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241027.jpeg" alt="Lima workshop photo 1"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200241303.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241303.jpeg" alt="Lima workshop photo 2"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200242123.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200242123.jpeg" alt="Lima workshop photo 3"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244662.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244662.jpeg" alt="Lima workshop photo 4"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244663.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244663.jpeg" alt="Lima workshop photo 5"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244967.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244967.jpeg" alt="Lima workshop photo 6"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200247056.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200247056.jpeg" alt="Lima workshop photo 7"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">Lima, Peru - WCO-SECO Global Trade Facilitation Programme</div>
+              <div class="talk-title">Peru Workshop on Customs Analytics with SUNAT</div>
               <div class="talk-meta" data-i18n="news1_meta">National workshop for SUNAT, Peru</div>
               <div class="talk-year">March 2026</div>
             </div>
             <p data-i18n="news1_body">Co-facilitated a five-day workshop in Lima for SUNAT on customs analytics, risk management, customs valuation data, and evidence-based decision-making under the WCO-SECO programme.</p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://www.wcoomd.org/en/topics/capacity-building/activities-and-programmes/cooperation-programmes/seco_wco-gtfp.aspx" target="_blank" rel="noreferrer">WCO-SECO Programme</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23wco&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#WCO</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23customsmodernization&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#CustomsModernization</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23dataanalytics&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#DataAnalytics</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23tradefacilitation&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#TradeFacilitation</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23customsvaluation&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#CustomsValuation</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23capacitybuilding&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#CapacityBuilding</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23globaltrade&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#GlobalTrade</a>
+            </div>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/Vietnam 2025/1767274474335.jpeg" alt="National workshop on data analytics for Viet Nam Customs in Hanoi">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474335.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474335.jpeg" alt="Viet Nam Customs workshop photo 1"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474341.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474341.jpeg" alt="Viet Nam Customs workshop photo 2"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474402.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474402.jpeg" alt="Viet Nam Customs workshop photo 3"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274476347.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274476347.jpeg" alt="Viet Nam Customs workshop photo 4"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">Hanoi - National Workshop on Data Analytics for Viet Nam Customs</div>
+              <div class="talk-title">National Data Analytics Workshop for Viet Nam Customs</div>
               <div class="talk-meta" data-i18n="news2_meta">WCO BACUDA Project</div>
               <div class="talk-year">December 2025</div>
             </div>
-            <p data-i18n="news2_body">Contributed as co-facilitator and WCO Data Analytics Expert in Hanoi, supporting workshop design and delivery on analytics, AI readiness, and institutional adoption for Viet Nam Customs.</p>
+            <p data-i18n="news2_body">Contributed as co-facilitator and WCO Data Analytics Expert in Hanoi, supporting a workshop that connected hands-on training in Python, fraud analytics, and HS classification with longer-term institutional readiness.</p>
             <div class="pub-links">
               <a class="mini-link" href="https://bacuda.wcoomd.org/2025/12/05/national-workshop-on-data-analytics-for-viet-nam-customs/" target="_blank" rel="noreferrer" data-i18n="workshop_note_link">Workshop note</a>
+              <a class="mini-link" href="https://lnkd.in/eHzS5UtZ" target="_blank" rel="noreferrer">Customs News</a>
+              <a class="mini-link" href="https://lnkd.in/e5CeFJcQ" target="_blank" rel="noreferrer">BACUDA Post</a>
+              <a class="mini-link" href="https://www.linkedin.com/company/world-customs-organization/" target="_blank" rel="noreferrer">WCO</a>
             </div>
           </article>
 
           <article class="talk-item">
             <div class="talk-head">
-              <div class="talk-title">25th Session of the Integrity Sub-Committee</div>
+              <div class="talk-title">Presenting Indonesia's Integrity-by-Design Approach at the WCO ISC</div>
               <div class="talk-meta" data-i18n="news3_meta">Presenter representing Indonesia Customs</div>
               <div class="talk-year">2025</div>
             </div>
-            <p data-i18n="news3_body">Presented Indonesia Customs' experience embedding integrity principles through data-driven controls, institutional design, and measurable outcomes in a global WCO forum with delegates from nearly 100 members.</p>
+            <p data-i18n="news3_body">Presented Indonesia Customs' approach to embedding integrity through data-driven controls, institutional design, and measurable operational outcomes in a global forum with delegates from nearly 100 WCO members.</p>
             <div class="pub-links">
               <a class="mini-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7434646751673856001/" target="_blank" rel="noreferrer" data-i18n="linkedin_reference">LinkedIn reference</a>
             </div>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/tableau/1748328210097.jpeg" alt="Data visualization sharing session">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/tableau/1748328210097.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210097.jpeg" alt="Technical Customs visualization session photo 1"></a>
+                <a class="news-thumb" href="News/tableau/1748328210269.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210269.jpeg" alt="Technical Customs visualization session photo 2"></a>
+                <a class="news-thumb" href="News/tableau/1748328210480.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210480.jpeg" alt="Technical Customs visualization session photo 3"></a>
+                <a class="news-thumb" href="News/tableau/1748328210594.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210594.jpeg" alt="Technical Customs visualization session photo 4"></a>
+                <a class="news-thumb" href="News/tableau/1748328213018.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328213018.jpeg" alt="Technical Customs visualization session photo 5"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">Directorate of Technical Customs - Data Visualization Session</div>
+              <div class="talk-title">Practical Data Visualization Session for Technical Customs</div>
               <div class="talk-meta" data-i18n="news4_meta">Internal analytics sharing session</div>
               <div class="talk-year">May 2025</div>
             </div>
-            <p data-i18n="news4_body">Delivered a three-hour practical session on data exploration, visualization, and actionable insight generation to help strengthen data-informed work inside the organization.</p>
+            <p data-i18n="news4_body">Delivered a practical session on data exploration, visualization, and decision-oriented storytelling, aimed at helping staff move from spreadsheet-heavy workflows toward clearer and more actionable use of evidence.</p>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/Bootcamp kepenulisan/1741599363432.jpeg" alt="Boot Camp Kepenulisan mentoring session">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363432.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363432.jpeg" alt="Boot Camp Kepenulisan photo 1"></a>
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363484.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363484.jpeg" alt="Boot Camp Kepenulisan photo 2"></a>
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363560.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363560.jpeg" alt="Boot Camp Kepenulisan photo 3"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">Boot Camp Kepenulisan - PSKC</div>
+              <div class="talk-title">Boot Camp Kepenulisan: Mentoring Emerging Researchers</div>
               <div class="talk-meta" data-i18n="news5_meta">Writing and research mentoring</div>
               <div class="talk-year">2025</div>
             </div>
-            <p data-i18n="news5_body">Contributed to a PSKC writing boot camp focused on persuasive structure, clarity, coherence, and mentoring students at PKN STAN as emerging researchers.</p>
+            <p data-i18n="news5_body">Contributed to a PSKC writing boot camp on persuasive structure, clarity, coherence, and research storytelling while mentoring PKN STAN students as emerging researchers.</p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://www.linkedin.com/company/pusat-studi-kepabeanan-dan-cukai/" target="_blank" rel="noreferrer">PSKC</a>
+              <a class="mini-link" href="https://www.linkedin.com/company/politeknik-keuangan-negara-stan/" target="_blank" rel="noreferrer">PKN STAN</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23writingbootcamp&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#WritingBootcamp</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23research&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#Research</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23mentorship&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#Mentorship</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23pknstan&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#PKNSTAN</a>
+              <a class="mini-link" href="https://www.linkedin.com/search/results/all/?keywords=%23skilldevelopment&amp;origin=HASH_TAG_FROM_FEED" target="_blank" rel="noreferrer">#SkillDevelopment</a>
+            </div>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/Dewan PSKC/1714361448048.jpeg" alt="PSKC advisory and academic community engagement">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/Dewan PSKC/1714361448048.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448048.jpeg" alt="PSKC advisory engagement photo 1"></a>
+                <a class="news-thumb" href="News/Dewan PSKC/1714361448112.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448112.jpeg" alt="PSKC advisory engagement photo 2"></a>
+                <a class="news-thumb" href="News/Dewan PSKC/1714361455058.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361455058.jpeg" alt="PSKC advisory engagement photo 3"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">PSKC Advisory Board and Academic Community Engagement</div>
+              <div class="talk-title">Joining the PSKC Advisory Community at PKN STAN</div>
               <div class="talk-meta" data-i18n="news6_meta">Pusat Studi Kepabeanan dan Cukai</div>
               <div class="talk-year">2024</div>
             </div>
-            <p data-i18n="news6_body">Joined the PSKC academic community and advisory environment at PKN STAN, strengthening ties between customs practice, writing, and research culture.</p>
+            <p data-i18n="news6_body">Joined the academic and advisory community around PSKC at PKN STAN, reinforcing ties between customs practice, research, and scholarly writing.</p>
             <div class="pub-links">
               <a class="mini-link" href="https://pskc.site/" target="_blank" rel="noreferrer" data-i18n="pskc_site">PSKC site</a>
+              <a class="mini-link" href="https://www.linkedin.com/company/pusat-studi-kepabeanan-dan-cukai/" target="_blank" rel="noreferrer">PSKC LinkedIn</a>
+              <a class="mini-link" href="https://www.linkedin.com/company/politeknik-keuangan-negara-stan/" target="_blank" rel="noreferrer">PKN STAN</a>
+              <a class="mini-link" href="https://www.linkedin.com/in/anggiprastyono/" target="_blank" rel="noreferrer">Anggi Prastyono</a>
+              <a class="mini-link" href="https://www.linkedin.com/in/muhammad-hadiyan-ridho/" target="_blank" rel="noreferrer">Muhammad Hadiyan Ridho</a>
             </div>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/Pacmann/1702111271208.jpeg" alt="Pacmann sharing session">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/Pacmann/1702111271208.jpeg" target="_blank" rel="noreferrer"><img src="News/Pacmann/1702111271208.jpeg" alt="Pacmann sharing session photo"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">Pacmann Sharing Session</div>
+              <div class="talk-title">Pacmann Session on Learning Data Analysis Independently</div>
               <div class="talk-meta" data-i18n="news7_meta">Independent learning and motivation in data analysis</div>
               <div class="talk-year">2023</div>
             </div>
-            <p data-i18n="news7_body">Shared a personal learning journey in data analysis, focusing on motivation, consistency, and how independent learners can build expertise over time.</p>
+            <p data-i18n="news7_body">Shared a personal learning journey in data analysis, focusing on motivation, consistency, and the discipline required to build expertise as an independent learner.</p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://www.linkedin.com/company/pacmann/" target="_blank" rel="noreferrer">Pacmann</a>
+              <a class="mini-link" href="https://www.linkedin.com/in/shiddiqimam/" target="_blank" rel="noreferrer">Muhammad Imam Shiddiq</a>
+            </div>
           </article>
 
           <article class="talk-item">
-            <img class="news-media" src="News/SIC/1732291290671.jpeg" alt="STAN Informatics Club data science sharing session">
+            <div class="news-gallery" data-gallery>
+              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+              <div class="news-thumbs">
+                <a class="news-thumb" href="News/SIC/1732291290671.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291290671.jpeg" alt="STAN Informatics Club session photo 1"></a>
+                <a class="news-thumb" href="News/SIC/1732291291473.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291473.jpeg" alt="STAN Informatics Club session photo 2"></a>
+                <a class="news-thumb" href="News/SIC/1732291291547.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291547.jpeg" alt="STAN Informatics Club session photo 3"></a>
+                <a class="news-thumb" href="News/SIC/1732291292071.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291292071.jpeg" alt="STAN Informatics Club session photo 4"></a>
+              </div>
+              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
+            </div>
             <div class="talk-head">
-              <div class="talk-title">STAN Informatics Club - Data Science Sharing</div>
+              <div class="talk-title">STAN Informatics Club Session on Learning Data Science</div>
               <div class="talk-meta" data-i18n="news8_meta">Student knowledge-sharing session</div>
               <div class="talk-year">2024</div>
             </div>
-            <p data-i18n="news8_body">Shared practical steps for learning data science, emphasizing that good decision-making requires not only access to data but the knowledge to interpret it responsibly.</p>
+            <p data-i18n="news8_body">Shared practical steps for learning data science, emphasizing that responsible decision-making requires not just access to data, but the knowledge to read and use it well.</p>
+            <div class="pub-links">
+              <a class="mini-link" href="https://www.linkedin.com/company/politeknik-keuangan-negara-stan/" target="_blank" rel="noreferrer">PKN STAN</a>
+            </div>
           </article>
         </div>
       </section>
@@ -1263,6 +1422,7 @@
     const themeToggle = document.querySelector(".theme-toggle");
     const themeToggleLabel = document.querySelector(".theme-toggle-label");
     const langButtons = [...document.querySelectorAll(".lang-button")];
+    const galleries = [...document.querySelectorAll("[data-gallery]")];
     const sections = [...document.querySelectorAll("[data-section]")];
     const navLinks = [...document.querySelectorAll(".nav-link")];
     const navMap = new Map(navLinks.map((link) => [link.getAttribute("href").slice(1), link]));
@@ -1376,22 +1536,22 @@
       news_title: { fr: "Actualités récentes, ateliers et jalons publics." },
       news_lead: { fr: "Cette section est tirée directement de l'archive `News/` du dépôt. Elle rassemble des ateliers récents, des interventions, des activités de mentorat et des jalons institutionnels documentés dans vos matériaux." },
       news1_meta: { fr: "Atelier national pour la SUNAT, Pérou" },
-      news1_body: { fr: "Coanimation d'un atelier de cinq jours à Lima pour la SUNAT sur l'analytique douanière, la gestion du risque, les données de valorisation et la prise de décision fondée sur les preuves dans le cadre du programme WCO-SECO." },
+      news1_body: { fr: "Coanimation d'un atelier de cinq jours à Lima pour la SUNAT sur l'analytique douanière, la gestion du risque, les données de valorisation douanière et la prise de décision fondée sur les preuves dans le cadre du programme WCO-SECO." },
       linkedin_reference: { fr: "Référence LinkedIn" },
       news2_meta: { fr: "Projet BACUDA de l'OMD" },
-      news2_body: { fr: "Contribution comme cofacilitatrice et experte OMD en analytique des données à Hanoï, en appui à la conception et à la mise en oeuvre d'un atelier sur l'analytique, la préparation à l'IA et l'adoption institutionnelle pour les douanes vietnamiennes." },
-      news3_meta: { fr: "Intervenante représentant les douanes indonésiennes" },
-      news3_body: { fr: "Présentation de l'expérience des douanes indonésiennes dans l'intégration des principes d'intégrité via des contrôles fondés sur les données, le design institutionnel et des résultats mesurables dans un forum mondial de l'OMD réunissant près de 100 membres." },
+      news2_body: { fr: "Contribution comme cofacilitatrice et experte OMD en analytique des données à Hanoï, en appui à un atelier reliant formation pratique en Python, analytique de fraude, classification SH et préparation institutionnelle de long terme." },
+      news3_meta: { fr: "Intervention au nom des douanes indonésiennes" },
+      news3_body: { fr: "Présentation de l'approche des douanes indonésiennes pour intégrer l'intégrité à travers des contrôles fondés sur les données, le design institutionnel et des résultats opérationnels mesurables dans un forum mondial de l'OMD." },
       news4_meta: { fr: "Session interne de partage analytique" },
-      news4_body: { fr: "Animation d'une session pratique de trois heures sur l'exploration de données, la visualisation et la production d'insights actionnables afin de renforcer les pratiques internes fondées sur les données." },
+      news4_body: { fr: "Animation d'une session pratique sur l'exploration de données, la visualisation et le récit orienté décision, afin d'aider les équipes à dépasser les usages centrés sur les tableurs vers des pratiques plus lisibles et actionnables." },
       news5_meta: { fr: "Mentorat en écriture et en recherche" },
-      news5_body: { fr: "Contribution à un boot camp d'écriture du PSKC axé sur la structure persuasive, la clarté, la cohérence et l'accompagnement d'étudiants de PKN STAN comme jeunes chercheurs." },
+      news5_body: { fr: "Contribution à un boot camp d'écriture du PSKC consacré à la structure persuasive, à la clarté, à la cohérence et au récit de recherche, tout en accompagnant des étudiants de PKN STAN comme jeunes chercheurs." },
       news6_meta: { fr: "Pusat Studi Kepabeanan dan Cukai" },
-      news6_body: { fr: "Intégration à l'environnement académique et consultatif du PSKC à PKN STAN, en renforçant les liens entre pratique douanière, écriture et culture de recherche." },
+      news6_body: { fr: "Intégration à l'environnement académique et consultatif du PSKC à PKN STAN, afin de renforcer les liens entre pratique douanière, recherche et culture de l'écrit." },
       news7_meta: { fr: "Apprentissage autonome et motivation en analyse de données" },
-      news7_body: { fr: "Partage d'un parcours personnel d'apprentissage en analyse de données, avec un accent sur la motivation, la constance et la manière dont les apprenants indépendants peuvent construire une expertise dans le temps." },
+      news7_body: { fr: "Partage d'un parcours personnel d'apprentissage en analyse de données, avec un accent sur la motivation, la constance et la discipline nécessaire pour construire une expertise comme apprenant autonome." },
       news8_meta: { fr: "Session étudiante de partage de connaissances" },
-      news8_body: { fr: "Partage d'étapes concrètes pour apprendre la data science, en insistant sur le fait qu'une bonne prise de décision exige non seulement l'accès aux données, mais aussi la capacité de les interpréter de manière responsable." },
+      news8_body: { fr: "Partage d'étapes concrètes pour apprendre la data science, en insistant sur le fait qu'une décision responsable exige non seulement l'accès aux données, mais aussi la capacité de les lire et de les utiliser correctement." },
       pskc_site: { fr: "Site PSKC" },
       footer_note: { fr: "Recherche et data science appliquées au commerce, aux douanes et à la gouvernance des technologies." },
       theme_light: { fr: "Mode clair" },
@@ -1459,6 +1619,16 @@
 
     langButtons.forEach((button) => {
       button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+    });
+
+    galleries.forEach((gallery) => {
+      const buttons = gallery.querySelectorAll(".gallery-btn");
+      const strip = gallery.querySelector(".news-thumbs");
+      if (!strip || buttons.length !== 2) return;
+      const thumb = strip.querySelector(".news-thumb");
+      const step = thumb ? thumb.getBoundingClientRect().width + 8 : 100;
+      buttons[0].addEventListener("click", () => strip.scrollBy({ left: -step * 2, behavior: "smooth" }));
+      buttons[1].addEventListener("click", () => strip.scrollBy({ left: step * 2, behavior: "smooth" }));
     });
 
     applyLanguage(localStorage.getItem("lang-preference") || "en");
