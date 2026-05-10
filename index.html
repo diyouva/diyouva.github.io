@@ -891,13 +891,13 @@
         align-items: center;
       }
 
-      .talk-item.news-item {
+      .talk-item.news-item.with-gallery {
         grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
         gap: 1.15rem;
         align-items: stretch;
       }
 
-      .talk-item.news-item > .news-gallery {
+      .talk-item.news-item.with-gallery > .news-gallery {
         grid-column: 2;
         grid-row: 1 / span 3;
         align-self: stretch;
@@ -905,17 +905,27 @@
         min-height: 100%;
       }
 
-      .talk-item.news-item > .news-copy {
+      .talk-item.news-item.with-gallery > .news-copy {
         grid-column: 1;
         padding-right: 0.2rem;
       }
 
-      .talk-item.news-item .news-thumbs {
+      .talk-item.news-item.with-gallery .news-thumbs {
         grid-auto-columns: 144px;
       }
 
-      .talk-item.news-item .news-thumb {
+      .talk-item.news-item.with-gallery .news-thumb {
         width: 144px;
+      }
+
+      .news-gallery.single-photo .news-thumbs {
+        justify-content: center;
+        grid-auto-columns: minmax(220px, 72%);
+      }
+
+      .news-gallery.single-photo .news-thumb {
+        width: min(260px, 72%);
+        margin-inline: auto;
       }
     }
 
@@ -1436,7 +1446,7 @@
         <h2 data-i18n="news_title">Recent updates, workshops, and public-facing milestones.</h2>
         <p class="section-lead" data-i18n="news_lead">This section is drawn directly from the `News/` archive in the repository. It captures recent workshops, speaking engagements, mentoring activities, and institutional milestones documented across your materials.</p>
         <div class="talk-list">
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1463,7 +1473,7 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1502,7 +1512,7 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1524,7 +1534,7 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1544,7 +1554,7 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
@@ -1567,8 +1577,8 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
-            <div class="news-gallery" data-gallery>
+          <article class="talk-item news-item with-gallery">
+            <div class="news-gallery single-photo" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
                 <a class="news-thumb" href="News/Pacmann/1702111271208.jpeg" target="_blank" rel="noreferrer"><img src="News/Pacmann/1702111271208.jpeg" alt="Pacmann sharing session photo"></a>
@@ -1585,7 +1595,7 @@
             </div>
           </article>
 
-          <article class="talk-item news-item">
+          <article class="talk-item news-item with-gallery">
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
