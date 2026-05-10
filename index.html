@@ -817,16 +817,22 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center center;
+      object-position: 58% center;
+      transform: scale(1.08);
       transition: transform 180ms ease;
     }
 
     .news-thumb.portrait-focus img {
       object-position: center 18%;
+      transform: scale(1.02);
     }
 
     .news-thumb:hover img {
-      transform: scale(1.04);
+      transform: scale(1.12);
+    }
+
+    .news-thumb.portrait-focus:hover img {
+      transform: scale(1.06);
     }
 
     .news-gallery.is-static .gallery-btn {
