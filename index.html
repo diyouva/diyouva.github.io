@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Diyouva Christa Novith — researcher and data scientist working on trade, customs, and technology governance. WCO-accredited data analytics expert and Carnegie Mellon graduate student.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Diyouva Christa Novith | Trade and Technology Governance">
+  <meta property="og:description" content="Researcher and data scientist working on trade, customs, and technology governance. WCO-accredited data analytics expert.">
+  <meta property="og:image" content="https://diyouva.github.io/assets/profile.jpg">
+  <meta property="og:url" content="https://diyouva.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://diyouva.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2354494b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='bold' fill='%23f1f7ed' text-anchor='middle'%3EDN%3C/text%3E%3C/svg%3E">
   <title>Diyouva Christa Novith | Trade and Technology Governance</title>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap");
@@ -578,6 +588,11 @@
       transform: translateY(-1px);
     }
 
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
     .project-grid {
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
@@ -797,6 +812,13 @@
       transform: translateY(calc(-50% - 1px));
     }
 
+    .gallery-btn:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+      background: color-mix(in srgb, var(--accent-4) 16%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 34%, transparent);
+    }
+
     .news-thumbs {
       display: flex;
       height: 100%;
@@ -981,6 +1003,8 @@
       const hour = new Date().getHours();
       const autoTheme = hour >= 7 && hour < 19 ? "light" : "dark";
       document.documentElement.dataset.theme = savedTheme || autoTheme;
+      const savedLang = localStorage.getItem("lang-preference");
+      if (savedLang) document.documentElement.lang = savedLang;
     })();
   </script>
 </head>
@@ -1050,9 +1074,9 @@
       </div>
 
       <div class="sidebar-meta">
-        <span data-i18n="sidebar_domains"><strong>Research Domains:</strong> International Trade, Customs, Technology Governance</span>
-        <span data-i18n="sidebar_methods"><strong>Methods:</strong> Policy Analysis, Machine Learning, Natural Language Processing, Visual Analytics</span>
-        <span data-i18n="sidebar_base"><strong>Current Base:</strong> Carnegie Mellon University, Heinz College</span>
+        <span data-i18n-html="sidebar_domains"><strong>Research Domains:</strong> International Trade, Customs, Technology Governance</span>
+        <span data-i18n-html="sidebar_methods"><strong>Methods:</strong> Policy Analysis, Machine Learning, Natural Language Processing, Visual Analytics</span>
+        <span data-i18n-html="sidebar_base"><strong>Current Base:</strong> Carnegie Mellon University, Heinz College</span>
       </div>
     </aside>
 
@@ -1429,13 +1453,13 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/Lima 2026/1773200241027.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241027.jpeg" alt="Lima workshop photo 1"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200241303.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241303.jpeg" alt="Lima workshop photo 2"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200242123.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200242123.jpeg" alt="Lima workshop photo 3"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200244662.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244662.jpeg" alt="Lima workshop photo 4"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200244663.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244663.jpeg" alt="Lima workshop photo 5"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200244967.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244967.jpeg" alt="Lima workshop photo 6"></a>
-                <a class="news-thumb" href="News/Lima 2026/1773200247056.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200247056.jpeg" alt="Lima workshop photo 7"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200241027.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241027.jpeg" alt="WCO-SECO customs analytics workshop session with SUNAT officials in Lima" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200241303.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200241303.jpeg" alt="Participants collaborating during the SUNAT data analytics training in Peru" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200242123.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200242123.jpeg" alt="Presentation on risk management at the Lima customs workshop" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244662.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244662.jpeg" alt="Group discussion on evidence-based decision-making at SUNAT workshop" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244663.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244663.jpeg" alt="Workshop participants during customs valuation data session in Lima" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200244967.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200244967.jpeg" alt="Collaborative working session at the WCO-SECO programme in Peru" loading="lazy"></a>
+                <a class="news-thumb" href="News/Lima 2026/1773200247056.jpeg" target="_blank" rel="noreferrer"><img src="News/Lima 2026/1773200247056.jpeg" alt="Group photo of WCO-SECO workshop facilitators and SUNAT participants" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1456,10 +1480,10 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/Vietnam 2025/1767274474335.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474335.jpeg" alt="Viet Nam Customs workshop photo 1"></a>
-                <a class="news-thumb" href="News/Vietnam 2025/1767274474341.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474341.jpeg" alt="Viet Nam Customs workshop photo 2"></a>
-                <a class="news-thumb" href="News/Vietnam 2025/1767274474402.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474402.jpeg" alt="Viet Nam Customs workshop photo 3"></a>
-                <a class="news-thumb" href="News/Vietnam 2025/1767274476347.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274476347.jpeg" alt="Viet Nam Customs workshop photo 4"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474335.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474335.jpeg" alt="WCO BACUDA data analytics workshop session with Viet Nam Customs in Hanoi" loading="lazy"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474341.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474341.jpeg" alt="Hands-on Python training during the Viet Nam Customs analytics workshop" loading="lazy"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274474402.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274474402.jpeg" alt="Fraud analytics and HS classification session at the BACUDA workshop in Hanoi" loading="lazy"></a>
+                <a class="news-thumb" href="News/Vietnam 2025/1767274476347.jpeg" target="_blank" rel="noreferrer"><img src="News/Vietnam 2025/1767274476347.jpeg" alt="Group photo of facilitators and Viet Nam Customs participants at the BACUDA workshop" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1495,11 +1519,11 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/tableau/1748328210097.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210097.jpeg" alt="Technical Customs visualization session photo 1"></a>
-                <a class="news-thumb" href="News/tableau/1748328210269.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210269.jpeg" alt="Technical Customs visualization session photo 2"></a>
-                <a class="news-thumb" href="News/tableau/1748328210480.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210480.jpeg" alt="Technical Customs visualization session photo 3"></a>
-                <a class="news-thumb" href="News/tableau/1748328210594.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210594.jpeg" alt="Technical Customs visualization session photo 4"></a>
-                <a class="news-thumb" href="News/tableau/1748328213018.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328213018.jpeg" alt="Technical Customs visualization session photo 5"></a>
+                <a class="news-thumb" href="News/tableau/1748328210097.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210097.jpeg" alt="Data visualization training session for customs technical staff" loading="lazy"></a>
+                <a class="news-thumb" href="News/tableau/1748328210269.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210269.jpeg" alt="Participants exploring data storytelling techniques during the visualization workshop" loading="lazy"></a>
+                <a class="news-thumb" href="News/tableau/1748328210480.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210480.jpeg" alt="Hands-on data exploration exercise at the customs analytics sharing session" loading="lazy"></a>
+                <a class="news-thumb" href="News/tableau/1748328210594.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328210594.jpeg" alt="Practical demonstration of decision-oriented data visualization for customs operations" loading="lazy"></a>
+                <a class="news-thumb" href="News/tableau/1748328213018.jpeg" target="_blank" rel="noreferrer"><img src="News/tableau/1748328213018.jpeg" alt="Group photo of participants at the customs data visualization sharing session" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1517,9 +1541,9 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363432.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363432.jpeg" alt="Boot Camp Kepenulisan photo 1"></a>
-                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363484.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363484.jpeg" alt="Boot Camp Kepenulisan photo 2"></a>
-                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363560.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363560.jpeg" alt="Boot Camp Kepenulisan photo 3"></a>
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363432.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363432.jpeg" alt="PSKC writing boot camp mentoring session with PKN STAN students" loading="lazy"></a>
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363484.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363484.jpeg" alt="Research storytelling and academic writing workshop at PSKC" loading="lazy"></a>
+                <a class="news-thumb" href="News/Bootcamp kepenulisan/1741599363560.jpeg" target="_blank" rel="noreferrer"><img src="News/Bootcamp kepenulisan/1741599363560.jpeg" alt="Group photo of boot camp participants and mentors at PSKC" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1537,9 +1561,9 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/Dewan PSKC/1714361448048.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448048.jpeg" alt="PSKC advisory engagement photo 1"></a>
-                <a class="news-thumb" href="News/Dewan PSKC/1714361448112.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448112.jpeg" alt="PSKC advisory engagement photo 2"></a>
-                <a class="news-thumb" href="News/Dewan PSKC/1714361455058.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361455058.jpeg" alt="PSKC advisory engagement photo 3"></a>
+                <a class="news-thumb" href="News/Dewan PSKC/1714361448048.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448048.jpeg" alt="Meeting with the PSKC advisory community at PKN STAN" loading="lazy"></a>
+                <a class="news-thumb" href="News/Dewan PSKC/1714361448112.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361448112.jpeg" alt="Discussion on customs research and scholarly writing at PSKC" loading="lazy"></a>
+                <a class="news-thumb" href="News/Dewan PSKC/1714361455058.jpeg" target="_blank" rel="noreferrer"><img src="News/Dewan PSKC/1714361455058.jpeg" alt="Group photo of PSKC advisory board members at PKN STAN" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1560,10 +1584,10 @@
             <div class="news-gallery" data-gallery>
               <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/SIC/1732291290671.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291290671.jpeg" alt="STAN Informatics Club session photo 1"></a>
-                <a class="news-thumb" href="News/SIC/1732291291473.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291473.jpeg" alt="STAN Informatics Club session photo 2"></a>
-                <a class="news-thumb" href="News/SIC/1732291291547.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291547.jpeg" alt="STAN Informatics Club session photo 3"></a>
-                <a class="news-thumb" href="News/SIC/1732291292071.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291292071.jpeg" alt="STAN Informatics Club session photo 4"></a>
+                <a class="news-thumb" href="News/SIC/1732291290671.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291290671.jpeg" alt="Knowledge-sharing session on data science at STAN Informatics Club" loading="lazy"></a>
+                <a class="news-thumb" href="News/SIC/1732291291473.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291473.jpeg" alt="Students engaging with data science learning paths at the STAN IC session" loading="lazy"></a>
+                <a class="news-thumb" href="News/SIC/1732291291547.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291291547.jpeg" alt="Q&A discussion during the STAN Informatics Club data science talk" loading="lazy"></a>
+                <a class="news-thumb" href="News/SIC/1732291292071.jpeg" target="_blank" rel="noreferrer"><img src="News/SIC/1732291292071.jpeg" alt="Group photo of STAN Informatics Club session attendees" loading="lazy"></a>
               </div>
               <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
@@ -1581,12 +1605,10 @@
           </article>
 
           <article class="talk-item news-item with-gallery">
-            <div class="news-gallery single-photo" data-gallery>
-              <button class="gallery-btn" type="button" aria-label="Previous photos">‹</button>
+            <div class="news-gallery single-photo is-static" data-gallery>
               <div class="news-thumbs">
-                <a class="news-thumb" href="News/Pacmann/1702111271208.jpeg" target="_blank" rel="noreferrer"><img src="News/Pacmann/1702111271208.jpeg" alt="Pacmann sharing session photo"></a>
+                <a class="news-thumb" href="News/Pacmann/1702111271208.jpeg" target="_blank" rel="noreferrer"><img src="News/Pacmann/1702111271208.jpeg" alt="Sharing session on independent data analysis learning at Pacmann" loading="lazy"></a>
               </div>
-              <button class="gallery-btn" type="button" aria-label="Next photos">›</button>
             </div>
             <div class="news-copy">
               <div class="talk-head">
@@ -1644,7 +1666,7 @@
       sidebar_base: { fr: "<strong>Base actuelle :</strong> Carnegie Mellon University, Heinz College" },
       hero_eyebrow: { fr: "Profil professionnel" },
       hero_title: { fr: "Recherche sur la manière dont les systèmes de données et les pratiques institutionnelles façonnent la gouvernance du commerce." },
-      hero_p1: { fr: "J'étudie comment l'apprentissage automatique, les données administratives et les infrastructures analytiques transforment la prise de décision dans les institutions publiques, en particulier dans les douanes et le commerce international. Mon travail se situe à l'intersection des systèmes techniques, de l'autorité institutionnelle et de la mise en oeuvre des politiques." },
+      hero_p1: { fr: "J'étudie comment l'apprentissage automatique, les données administratives et les infrastructures analytiques transforment la prise de décision dans les institutions publiques, en particulier dans les douanes et le commerce international. Mon travail se situe à l'intersection des systèmes techniques, de l'autorité institutionnelle et de la mise en œuvre des politiques." },
       hero_p2: { fr: "À travers les opérations douanières, l'analytique fiscale et l'intégration commerciale numérique régionale, je m'intéresse à la manière dont les preuves deviennent fiables, responsables et utilisables une fois intégrées dans de véritables flux organisationnels." },
       about_eyebrow: { fr: "À propos" },
       about_title: { fr: "Activités actuelles et orientations de recherche." },
@@ -1666,7 +1688,7 @@
       pub2_note: { fr: "Utilise l'apprentissage automatique pour classer les descriptions de marchandises en codes SH, en reliant la modélisation textuelle à la précision administrative et à l'automatisation douanière." },
       pub3_note: { fr: "Étudie comment la libéralisation commerciale régionale affecte les balances commerciales et le potentiel d'exportation à l'aide d'une analyse en équilibre partiel." },
       pub4_note: { fr: "Évalue les droits d'accise sur le plastique comme instrument de politique environnementale et les compare à d'autres approches." },
-      pub5_note: { fr: "Texte orienté politique publique sur la performance budgétaire et les tendances des recettes douanières et d'accise pendant la reprise post-pandémique de l'Indonésie." },
+      pub5_note: { fr: "Analyse les interventions de politique douanière pendant la pandémie de COVID-19, révélant que si les incitations fiscales ont effectivement stimulé les importations de fournitures médicales, les contraintes procédurales ont freiné l'amélioration des temps de séjour." },
       listed_linkedin: { fr: "Référencé sur LinkedIn" },
       project_eyebrow: { fr: "Projets" },
       project_title: { fr: "Outils, tableaux de bord et projets interactifs orientés politique publique." },
@@ -1677,13 +1699,13 @@
       open_project: { fr: "Ouvrir le projet" },
       open_dashboard: { fr: "Ouvrir le tableau de bord" },
       proj1_type: { fr: "Application" },
-      proj1_body: { fr: "Un outil interactif de politique commerciale qui associe les matériaux des accords commerciaux à une navigation assistée par LLM pour accélérer l'accès au contenu des traités, aux questions de mise en oeuvre et aux références utiles à la décision." },
+      proj1_body: { fr: "Un outil interactif de politique commerciale qui associe les matériaux des accords commerciaux à une navigation assistée par LLM pour accélérer l'accès au contenu des traités, aux questions de mise en œuvre et aux références utiles à la décision." },
       proj2_type: { fr: "Application" },
       proj2_body: { fr: "Une application d'analyse publique pour explorer les réponses H-1B, OPT et CPT sous l'effet de chocs de coût et d'incitation, conçue pour rendre plus lisible l'analyse par scénarios du travail et de l'immigration." },
       proj3_type: { fr: "Application" },
       proj3_body: { fr: "Un environnement analytique en ligne pour examiner les effets miroir du commerce, les comportements possibles de reroutage et les signaux de contournement à partir de statistiques commerciales comparées." },
       proj4_type: { fr: "Tableau de bord" },
-      proj4_body: { fr: "Une vue interactive sur la politique d'acquisition et de mobilisation des experts, structurée pour faire ressortir les schémas d'allocation, les questions de design de programme et les priorités de mise en oeuvre." },
+      proj4_body: { fr: "Une vue interactive sur la politique d'acquisition et de mobilisation des experts, structurée pour faire ressortir les schémas d'allocation, les questions de design de programme et les priorités de mise en œuvre." },
       proj5_type: { fr: "Tableau de bord" },
       proj5_body: { fr: "Un tableau de bord économique régional centré sur la situation actuelle et les potentiels des micro, petites et moyennes entreprises à travers la province de Java occidental." },
       proj6_type: { fr: "Tableau de bord" },
@@ -1692,7 +1714,7 @@
       proj7_body: { fr: "Un tableau de bord multi-vues consacré aux écarts de statistiques miroirs du commerce, aux asymétries de déclaration et aux signaux utiles à l'analyse du contournement." },
       proj8_type: { fr: "Tableau de bord" },
       proj8_body: { fr: "Un tableau de bord spatial sur les incidents et enjeux en Indonésie, conçu pour rendre les motifs géographiques de risque plus faciles à parcourir et à comparer." },
-      workshop_note_link: { fr: "Note d'atelier" },
+      workshop_note_link: { fr: "Actualités OMD" },
       honors_eyebrow: { fr: "Distinctions" },
       honors_title: { fr: "Prix, distinctions et reconnaissances compétitives." },
       honors_lead: { fr: "Ces distinctions reflètent un travail reconnu en recherche, en service public, en bourses d'études et en analytique appliquée. Ensemble, elles signalent une trajectoire où la production de preuves est jugée utile à la fois dans le monde académique et dans les institutions." },
@@ -1739,7 +1761,7 @@
 
     textNodes.forEach((node) => {
       if (!node.dataset.en) {
-        node.dataset.en = node.innerHTML;
+        node.dataset.en = node.textContent;
       }
     });
 
@@ -1767,7 +1789,7 @@
       textNodes.forEach((node) => {
         const key = node.dataset.i18n;
         const value = translations[key] && translations[key][lang];
-        node.innerHTML = value || node.dataset.en;
+        node.textContent = value || node.dataset.en;
       });
 
       htmlNodes.forEach((node) => {
@@ -1850,7 +1872,9 @@
 
     const applyProjectFilter = (kind) => {
       projectFilterButtons.forEach((button) => {
-        button.classList.toggle("active", button.dataset.projectFilter === kind);
+        const isActive = button.dataset.projectFilter === kind;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
       projectCards.forEach((card) => {
         const match = kind === "all" || card.dataset.projectKind === kind;
