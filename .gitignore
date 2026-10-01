@@ -1,3 +1,11 @@
+# macOS metadata (all directories)
 .DS_Store
-**/.DS_Store
+
+# Local assistant configuration and worktrees
 .claude/
+
+# News source documents; published content lives in index.html
+/News/**/*.docx
+
+# Microsoft Office temporary lock files
+~$*
